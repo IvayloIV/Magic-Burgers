@@ -21,7 +21,8 @@ module.exports = {
         const { burgerId } = req.params;
 
         try {
-            const comments = await Comment.find({ burger: burgerId });
+            const comments = await Comment.find({ burger: burgerId })
+				.sort({ creationDate: -1 });
             res.status(200).json(comments);
         } catch (err) {
             next(err);
@@ -64,7 +65,7 @@ module.exports = {
 
             burger.comments.push(newComment._id);
             await burger.save();
-            res.status(201).json({ success: true, message: 'Comment created success.' });
+            res.status(201).json({ success: true, message: 'Comment created success.', comment: newComment });
         } catch (err) {
             next(err);
         }

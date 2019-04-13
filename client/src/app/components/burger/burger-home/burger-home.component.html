@@ -1,0 +1,10 @@
+<div *ngIf="(topBurgers$ | async) as topBurgers">
+  <h2>Top burgers</h2>
+  <app-burger-list [burgers]="topBurgers.theNewest" title="The Newest Burgers">
+  </app-burger-list>
+  <app-burger-list [burgers]="topBurgers.theMostLiked" title="The Most Liked Burgers">
+  </app-burger-list>
+  <app-burger-list [burgers]="topBurgers.theMostCommented" title="The Most Commented Burgers">
+  </app-burger-list>
+</div>
+  

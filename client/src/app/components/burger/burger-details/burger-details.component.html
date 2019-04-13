@@ -1,0 +1,23 @@
+<section class="burger-details" *ngIf="(burger$ | async) as burger">
+    <div class="burger-details-info">
+        <img [src]="burger.imageUrl" alt="burger-image">
+        <p>Comments: {{burger.comments.length}}</p>
+        <p>Likes: {{burger.likes.length}}</p>
+        Products:
+        <div class="details-products" *ngFor="let product of burger.products">
+            <p>{{product}}</p>
+        </div>
+        <p>Price: {{burger.price}}</p>
+        <p>Description: {{burger.description}}</p>
+        <p>Weight: {{burger.weight}}</p>
+        <p>Calories: {{burger.calories}}</p>
+        <p>Creation date: {{ burger.creationDate | date:"dd/MM/yy, hh:mm" }}</p>
+        <div *ngIf="userId">
+            <button *ngIf="burger.likes.indexOf(userId) === -1; else dislike" (click)="likeBurger(burger._id)">Like</button>
+            <ng-template #dislike><button (click)="dislikeBurger(burger._id)">Dislike</button></ng-template>
+        </div>
+    </div>
+    <app-comment-create *ngIf="isAuth; else login"></app-comment-create>
+    <ng-template #login><h3><a routerLink="/auth/login">Login to post a comments.</a></h3></ng-template>
+    <app-comment-list></app-comment-list>
+</section>

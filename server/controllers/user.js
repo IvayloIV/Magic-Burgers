@@ -6,12 +6,8 @@ function validateUser(req) {
     const { email, username, password, firstName, lastName, age, imageUrl } = req.body;
     let messages = [];
 
-    if (!email || email.length === 0) {
-        messages.push('Email is empty.');
-    }
-	
-    if (email.indexOf('@') === -1) {
-        messages.push('Invalid email.');
+    if (!email || email.length < 4) {
+        messages.push('Email must be more than 3 symbols.');
     }
 
     if (!username || username.length < 4) {

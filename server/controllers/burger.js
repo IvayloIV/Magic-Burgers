@@ -121,8 +121,7 @@ module.exports = {
         const { id } = req.params;
 
         try {
-            const burger = await Burger.findById(id)
-                .populate('comments');
+            const burger = await Burger.findById(id);
             if (!burger) {
                 let error = new Error('Burger not found.');
                 error.statusCode = 400;

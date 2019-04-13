@@ -1,0 +1,8 @@
+<div>
+  <h4>{{title}}</h4>
+</div>
+<div>
+  <div class="burger-info" *ngFor="let burger of burgers">
+    <app-burger-info [burger]="burger"></app-burger-info>
+  </div>
+</div>

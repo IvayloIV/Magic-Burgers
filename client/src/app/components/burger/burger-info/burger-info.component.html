@@ -1,0 +1,8 @@
+<img [src]="burger.imageUrl" alt="burger-image">
+<h5>{{burger.name}}</h5>
+<p>Price: {{burger.price}}$</p>
+<div>Creation Date: {{burger.creationDate | date:"dd/MM/yy, hh:mm" }}</div>
+<div>Comments: {{burger.comments.length}}</div>
+<div>Likes: {{burger.likes.length}}</div>
+<a routerLink="/order/create/{{burger._id}}"><button>Order</button></a>
+<a routerLink="/burger/details/{{burger._id}}"><button>Details</button></a>

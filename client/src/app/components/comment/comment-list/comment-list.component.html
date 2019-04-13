@@ -1,0 +1,6 @@
+<div *ngFor="let comment of (comments$ | async)">
+  <p>{{comment.message}}</p>
+  <p>{{comment.rating}}</p>
+  <p>{{comment.creationDate | date:"dd/MM/yy, hh:mm" }}</p>
+  <a *ngIf="comment.creator === userId" (click)="removeComment(comment._id)"><button>Remove</button></a>
+</div>
