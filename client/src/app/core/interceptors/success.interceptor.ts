@@ -40,6 +40,12 @@ export class SuccessInterceptor implements HttpInterceptor {
                 } else if (req.url.indexOf('/order/create') !== -1) {
                     this.toastr.success('Order created success.');
                     this.route.navigate(['/order/my']);
+                } else if (req.url.endsWith('/burger/create')) {
+                    this.toastr.success('Burger created success.');
+                    this.route.navigate(['/burger/menu']);
+                } else if (req.url.endsWith('/topping/create')) {
+                    this.toastr.success('Topping created success.');
+                    this.route.navigate(['/topping/list']);
                 }
             }
         }));

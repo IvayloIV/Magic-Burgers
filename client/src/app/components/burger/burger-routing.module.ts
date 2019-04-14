@@ -7,6 +7,8 @@ import { BurgerMenuResolver } from 'src/app/core/resolvers/burger/burger-menu.re
 import { BurgerDetailsComponent } from './burger-details/burger-details.component';
 import { BurgerDetailsResolver } from 'src/app/core/resolvers/burger/burger-details.resolver';
 import { CommentListResolver } from 'src/app/core/resolvers/comment/comment-list.resolver';
+import { BurgerCreateComponent } from './burger-create/burger-create.component';
+import { AdminGuard } from 'src/app/core/guards/admin.guard';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'burger/home' },
@@ -17,6 +19,7 @@ const routes: Routes = [
     component: BurgerDetailsComponent, 
     resolve: { burger: BurgerDetailsResolver, comments: CommentListResolver } 
   },
+  { path: 'create', component: BurgerCreateComponent, canActivate: [AdminGuard] }
 ];
 
 @NgModule({

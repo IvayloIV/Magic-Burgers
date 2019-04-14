@@ -4,4 +4,5 @@ export interface CommentInfo {
     message: string;
     rating: number;
     creationDate: string;
+    burger: string;
 }

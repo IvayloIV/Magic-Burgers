@@ -26,4 +26,8 @@ export class OrderService {
   getDetails(orderId: string): Observable<OrderDetails> {
     return this.http.get<OrderDetails>(BASE_URL + `details/${orderId}`);
   }
+
+  getAllOrders(): Observable<OrderInfo[]> {
+    return this.http.get<OrderInfo[]>(BASE_URL + 'all');
+  }
 }

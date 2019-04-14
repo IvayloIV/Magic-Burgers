@@ -8,7 +8,8 @@ const routes: Routes = [
   { path: 'auth', loadChildren: "./components/auth/auth.module#AuthModule", canLoad: [AuthGuard] },
   { path: 'burger', loadChildren: "./components/burger/burger.module#BurgerModule" },
   { path: 'order', loadChildren: "./components/order/order.module#OrderModule", canLoad: [UserGuard] },
-  { path: 'topping', loadChildren: "./components/topping/topping.module#ToppingModule", canLoad: [UserGuard] }
+  { path: 'topping', loadChildren: "./components/topping/topping.module#ToppingModule", canLoad: [UserGuard] },
+  { path: 'user', loadChildren: "./components/user/user.module#UserModule", canLoad: [UserGuard] }
 ];
 
 @NgModule({

@@ -203,7 +203,8 @@ module.exports = {
         const { username } = req.params;
 
         try {
-            const currentUser = await User.findById(req.user.userId);
+            const currentUser = await User.findById(req.user.userId)
+				.populate('comments');
             if (currentUser.roles.indexOf('Admin') === -1 && username !== currentUser.username) {
                 let error = new Error('You are not admin.');
                 error.statusCode = 401;

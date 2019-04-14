@@ -10,6 +10,7 @@ function setAllToppings(state: ToppingState, payload) {
         toppings: payload
     });
 }
+
 export function toppingReducer(
     state: ToppingState = initialState,
     action: ToppingAction.Type

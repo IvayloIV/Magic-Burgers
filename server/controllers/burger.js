@@ -111,7 +111,8 @@ module.exports = {
     },
     all: async (req, res, next) => {
         try {
-            const burgers = await Burger.find({});
+            const burgers = await Burger.find({})
+				.sort({ creationDate: -1 });
             res.status(200).json(burgers);
         } catch (err) {
             next(err);

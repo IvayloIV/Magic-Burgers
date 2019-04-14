@@ -37,7 +37,8 @@ module.exports = {
             //     throw error;
             // }
 
-            const toppings = await Topping.find({});
+            const toppings = await Topping.find({})
+				.sort({ creationDate: -1 });
             res.status(200).json(toppings);
         } catch (err) {
             next(err);

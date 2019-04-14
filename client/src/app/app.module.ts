@@ -15,6 +15,7 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { UserGuard } from './core/guards/user.guard';
 import { appReducers } from './store/app.reducers';
+import { AdminGuard } from './core/guards/admin.guard';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { appReducers } from './store/app.reducers';
       multi: true
     },
     AuthGuard,
-    UserGuard
+    UserGuard,
+    AdminGuard
   ],
   bootstrap: [AppComponent]
 })

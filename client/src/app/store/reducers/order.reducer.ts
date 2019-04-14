@@ -3,7 +3,8 @@ import * as OrderAction from '../actions/order.action';
 
 const initialState: OrderState = {
     myOrders: [],
-    orderDetails: null
+    orderDetails: null,
+    allOrders: []
 };
 
 function setMyOrders(state: OrderState, payload) {
@@ -18,6 +19,12 @@ function setOrderDetails(state: OrderState, payload) {
     });
 }
 
+function setAllOrders(state: OrderState, payload) {
+    return Object.assign({}, state, { 
+        allOrders: payload
+    });
+}
+
 export function orderReducer(
     state: OrderState = initialState,
     action: OrderAction.Type
@@ -27,6 +34,8 @@ export function orderReducer(
             return setMyOrders(state, action.payload);
         case OrderAction.GET_ORDER_DETAILS:
             return setOrderDetails(state, action.payload);
+        case OrderAction.GET_ALL_ORDERS:
+            return setAllOrders(state, action.payload);
         default:
             return state;
     }

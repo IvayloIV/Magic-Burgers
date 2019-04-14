@@ -8,6 +8,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.state';
 import { tap } from 'rxjs/operators';
 import { LikeBurger, DislikeBurger } from 'src/app/store/actions/burger.action';
+import { BurgerCreate } from '../models/burger/burger-create.model';
 
 const BASE_URL = 'http://localhost:5000/burger/';
 
@@ -44,5 +45,9 @@ export class BurgerService {
       .pipe(tap(() => {
         this.store.dispatch(new DislikeBurger(userId));
       }));
+  }
+
+  createBurger(body: BurgerCreate) {
+    return this.http.post(BASE_URL + 'create', body);
   }
 }

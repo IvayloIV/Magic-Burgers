@@ -4,6 +4,7 @@ import { OrderDetails } from 'src/app/core/models/order/order-details.model';
 
 export const GET_MY_ORDERS = '[ORDER] My';
 export const GET_ORDER_DETAILS = '[ORDER] Details';
+export const GET_ALL_ORDERS = '[ORDER] All';
 
 export class GetMyOrders implements Action {
     type: string = GET_MY_ORDERS;
@@ -15,4 +16,9 @@ export class GetOrderDetails implements Action {
     constructor(public payload: OrderDetails) {}
 }
 
-export type Type = GetMyOrders | GetOrderDetails;
+export class GetAllOrders implements Action {
+    type: string = GET_ALL_ORDERS;
+    constructor(public payload: OrderInfo[]) {}
+}
+
+export type Type = GetMyOrders | GetOrderDetails | GetAllOrders;

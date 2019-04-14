@@ -36,6 +36,7 @@ module.exports = {
             }
 
             const orders = await Order.find()
+				.populate('burger')
                 .sort({ creationDate: -1 });
             return res.status(200).json(orders);
         } catch (err) {

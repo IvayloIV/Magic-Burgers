@@ -13,6 +13,8 @@ import { BurgerDetailsComponent } from './burger-details/burger-details.componen
 import { BurgerDetailsResolver } from 'src/app/core/resolvers/burger/burger-details.resolver';
 import { CommentModule } from '../comment/comment.module';
 import { CommentListResolver } from 'src/app/core/resolvers/comment/comment-list.resolver';
+import { BurgerCreateComponent } from './burger-create/burger-create.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,13 +22,15 @@ import { CommentListResolver } from 'src/app/core/resolvers/comment/comment-list
     BurgerListComponent,
     BurgerMenuComponent,
     BurgerInfoComponent,
-    BurgerDetailsComponent
+    BurgerDetailsComponent,
+    BurgerCreateComponent
   ],
   imports: [
     CommonModule,
     BurgerRoutingModule,
     NgxPaginationModule,
-    CommentModule
+    CommentModule,
+    ReactiveFormsModule
   ],
   providers: [
     BurgerTopResolver,
