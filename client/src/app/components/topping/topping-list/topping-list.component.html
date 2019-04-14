@@ -1,0 +1,8 @@
+<h3>Toppings:</h3>
+<div *ngFor="let topping of (toppings$ | async)">
+  <p>{{topping.name}}</p>
+  <img [src]="topping.imageUrl" alt="image-topping">
+  <p>Origin: {{topping.origin}}</p>
+  <p>Price: {{topping.price}}$</p>
+  <p>Weight: {{topping.weight}}g.</p>
+</div>

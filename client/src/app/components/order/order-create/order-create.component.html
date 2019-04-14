@@ -1,3 +1,35 @@
-<p>
-  order-create works!
-</p>
+<section class="order-create">
+  <form [formGroup]="form" (submit)="createOrder()">
+      <div>
+        <h3>Products:</h3>
+        <ul>
+          <li *ngFor="let product of burger.products" highlight="green" (click)="changeProducts(product)">{{product}}</li>
+        </ul>
+        <app-topping-info (changeTopping)="changeToppings($event)"></app-topping-info>
+      </div>
+      <div>
+        <h3>Burger "{{burger.name}}":</h3>
+        <img [src]="burger.imageUrl" alt="burger-image">
+        <p>Price: {{(f['totalPrice'].value * f['quantity'].value) | number : '1.2-2'}}</p>
+        <p>Quantity: {{f['quantity'].value}}</p>
+        <input type="button" (click)="increaseQuantity()" value="+">
+        <input type="button" (click)="decreaseQuantity()" value="-">
+        <input type="submit" value="Order">
+      </div>
+      <div>
+        <h3>Delivery type:</h3>
+        <label>
+          <input type="radio" formControlName="deliveryType" value="Regular" checked="checked">
+          <span>Regular</span>
+        </label>
+        <label>
+          <input type="radio" formControlName="deliveryType" value="Fast">
+          <span>Fast</span>
+        </label>
+        <label>
+          <input type="radio" formControlName="deliveryType" value="Express">
+          <span>Express</span>
+        </label>
+      </div>
+  </form>
+</section>

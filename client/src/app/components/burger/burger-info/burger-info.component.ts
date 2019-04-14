@@ -8,4 +8,9 @@ import { BurgerInfo } from 'src/app/core/models/burger/burger-info.model';
 })
 export class BurgerInfoComponent {
   @Input() burger: BurgerInfo;
+  isAuth: boolean;
+
+  constructor() {
+    this.isAuth = localStorage.getItem('authToken') !== null;
+  }
 }

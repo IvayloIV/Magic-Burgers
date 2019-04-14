@@ -2,12 +2,12 @@ import { ToppingState } from '../states/topping.state';
 import * as ToppingAction from '../actions/topping.action';
 
 const initialState: ToppingState = {
-    toppingsInfo: [],
+    toppings: [],
 };
 
-function setInfoToppings(state: ToppingState, payload) {
+function setAllToppings(state: ToppingState, payload) {
     return Object.assign({}, state, { 
-        toppingsInfo: payload
+        toppings: payload
     });
 }
 export function toppingReducer(
@@ -15,8 +15,8 @@ export function toppingReducer(
     action: ToppingAction.Type
 ) {
     switch (action.type) {
-        case ToppingAction.GET_INFO_TOPPINGS:
-            return setInfoToppings(state, action.payload);
+        case ToppingAction.GET_ALL_TOPPINGS:
+            return setAllToppings(state, action.payload);
         default:
             return state;
     }

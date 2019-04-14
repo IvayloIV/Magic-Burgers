@@ -5,21 +5,21 @@ import { Observable } from 'rxjs';
 import { tap, mapTo } from 'rxjs/operators';
 
 import { AppState } from 'src/app/store/app.state';
-import { ToppingService } from '../../services/topping.service';
-import { ToppingInfo } from '../../models/topping/topping-info.model';
-import { GetAllToppings } from 'src/app/store/actions/topping.action';
+import { OrderService } from '../../services/order.service';
+import { OrderInfo } from '../../models/order/order-info.model';
+import { GetMyOrders } from 'src/app/store/actions/order.action';
 
 @Injectable()
-export class ToppingInfoResolver implements Resolve<boolean> {
+export class MyOrdersResolver implements Resolve<boolean> {
     constructor(
-        private toppingService: ToppingService,
+        private orderService: OrderService,
         private store: Store<AppState>
     ) { }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-        return this.toppingService.getAllToppings()
-            .pipe(tap((data: ToppingInfo[]) => {
-                this.store.dispatch(new GetAllToppings(data));
+        return this.orderService.getMyOrders()
+            .pipe(tap((data: OrderInfo[]) => {
+                this.store.dispatch(new GetMyOrders(data));
             }), mapTo(true));
     }
 

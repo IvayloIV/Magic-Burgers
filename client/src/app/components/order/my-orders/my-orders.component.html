@@ -1,0 +1,21 @@
+<h3>My orders</h3>
+<table>
+  <tr>
+    <th>Burger image</th>
+    <th>Burger name</th>
+    <th>Delivery type</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let order of (myOrders$ | async)">
+    <img [src]="order.burger.imageUrl" alt="burger-image">
+    <td>{{order.burger.name}}</td>
+    <td>{{order.deliveryType}}</td>
+    <td>{{order.quantity}}</td>
+    <td>{{order.totalPrice | number : '1.2-2'}}</td>
+    <td>{{order.status}}</td>
+    <td><a routerLink="/order/details/{{order._id}}">Details</a></td>
+  </tr>
+</table>

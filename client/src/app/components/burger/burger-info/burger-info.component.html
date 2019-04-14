@@ -4,5 +4,5 @@
 <div>Creation Date: {{burger.creationDate | date:"dd/MM/yy, hh:mm" }}</div>
 <div>Comments: {{burger.comments.length}}</div>
 <div>Likes: {{burger.likes.length}}</div>
-<a routerLink="/order/create/{{burger._id}}"><button>Order</button></a>
+<a *ngIf="isAuth" routerLink="/order/create/{{burger._id}}"><button>Order</button></a>
 <a routerLink="/burger/details/{{burger._id}}"><button>Details</button></a>

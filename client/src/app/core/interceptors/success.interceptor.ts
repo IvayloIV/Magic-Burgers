@@ -37,6 +37,9 @@ export class SuccessInterceptor implements HttpInterceptor {
                     this.toastr.success('Burger liked success.');
                 } else if (req.url.indexOf('/burger/dislike') !== -1) {
                     this.toastr.success('Burger disliked success.');
+                } else if (req.url.indexOf('/order/create') !== -1) {
+                    this.toastr.success('Order created success.');
+                    this.route.navigate(['/order/my']);
                 }
             }
         }));

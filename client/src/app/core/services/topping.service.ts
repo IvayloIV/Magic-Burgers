@@ -13,7 +13,7 @@ export class ToppingService {
     private http: HttpClient,
   ) { }
 
-  getToppingsInfo(): Observable<ToppingInfo[]> {
-      return this.http.get<ToppingInfo[]>(BASE_URL + 'all');
+  getAllToppings(): Observable<ToppingInfo[]> {
+    return this.http.get<ToppingInfo[]>(BASE_URL + 'all');
   }
 }

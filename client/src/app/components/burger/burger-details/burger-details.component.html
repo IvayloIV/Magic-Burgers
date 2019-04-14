@@ -13,6 +13,7 @@
         <p>Calories: {{burger.calories}}</p>
         <p>Creation date: {{ burger.creationDate | date:"dd/MM/yy, hh:mm" }}</p>
         <div *ngIf="userId">
+            <a routerLink="/order/create/{{burger._id}}">Order</a>
             <button *ngIf="burger.likes.indexOf(userId) === -1; else dislike" (click)="likeBurger(burger._id)">Like</button>
             <ng-template #dislike><button (click)="dislikeBurger(burger._id)">Dislike</button></ng-template>
         </div>

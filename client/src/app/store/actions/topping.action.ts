@@ -1,11 +1,11 @@
 import { Action } from '@ngrx/store';
 import { ToppingInfo } from 'src/app/core/models/topping/topping-info.model';
 
-export const GET_INFO_TOPPINGS = '[TOPPING] Info';
+export const GET_ALL_TOPPINGS = '[TOPPING] All';
 
-export class GetInfoToppings implements Action {
-    type: string = GET_INFO_TOPPINGS;
+export class GetAllToppings implements Action {
+    type: string = GET_ALL_TOPPINGS;
     constructor(public payload: ToppingInfo[]) {}
 }
 
-export type Type = GetInfoToppings;
+export type Type = GetAllToppings;

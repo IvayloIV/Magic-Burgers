@@ -101,7 +101,10 @@ module.exports = {
                     populate: {
                         path: 'burger',
                         model: 'Burger'
-                    } 
+                    },
+					options: {
+						sort: { creationDate: -1 }
+					}
                 });
             const orders = user.orders;
 

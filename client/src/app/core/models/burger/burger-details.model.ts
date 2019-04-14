@@ -4,6 +4,7 @@ export interface BurgerDetails {
     products: Array<string>,
     _id: string,
     price: number;
+    name: string;
     description: string;
     weight: number;
     calories: number;

@@ -1,0 +1,17 @@
+<div *ngIf="(order$ | async) as order">
+  <h4>{{order.burger.name}}</h4>
+  <img [src]="order.burger.imageUrl" alt="burger-image">
+  <p>Products:</p>
+  <ul>
+    <li *ngFor="let product of order.products">{{product}}</li>
+  </ul>
+  <p>Toppings:</p>
+  <ul>
+    <li *ngFor="let topping of order.toppings">{{topping.name}}</li>
+  </ul>
+  <p>Delivery type: {{order.deliveryType}}</p>
+  <p>Quantity: {{order.quantity}}</p>
+  <p>Price: {{order.totalPrice | number : '1.2-2'}}$</p>
+  <p>Status: {{order.status}}</p>
+  <p>Creation date: {{order.creationDate | date: 'dd/MM/yyyy hh/mm' }}</p>
+</div>
