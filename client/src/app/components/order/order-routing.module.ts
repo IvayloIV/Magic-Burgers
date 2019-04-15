@@ -10,16 +10,20 @@ import { OrderDetailsResolver } from 'src/app/core/resolvers/order/order-details
 import { AllOrdersComponent } from './all-orders/all-orders.component';
 import { AllOrdersResolver } from 'src/app/core/resolvers/order/all-orders.resolver';
 import { AdminGuard } from 'src/app/core/guards/admin.guard';
+import { BlockGuard } from 'src/app/core/guards/block.guard';
+import { OrderEditComponent } from './order-edit/order-edit.component';
 
 const routes: Routes = [
   { 
     path: 'create/:id', 
     component: OrderCreateComponent, 
-    resolve: { burgerDetails: BurgerDetailsResolver, toppings: ToppingInfoResolver } 
+    resolve: { burgerDetails: BurgerDetailsResolver, toppings: ToppingInfoResolver },
+    canActivate: [BlockGuard] 
   },
   { path: 'my', component: MyOrdersComponent, resolve: { myOrder: MyOrdersResolver } },
   { path: 'details/:id', component: OrderDetailsComponent, resolve: { orderDetails: OrderDetailsResolver } },
-  { 
+  { path: 'edit/:id', component: OrderEditComponent, resolve: { orderDetails: OrderDetailsResolver } },
+  {
     path: 'all',
     component: AllOrdersComponent, 
     resolve: { allOrders: AllOrdersResolver },

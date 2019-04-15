@@ -11,7 +11,8 @@
   </ul>
   <p>Delivery type: {{order.deliveryType}}</p>
   <p>Quantity: {{order.quantity}}</p>
-  <p>Price: {{order.totalPrice | number : '1.2-2'}}$</p>
+  <p>Total price: {{order.totalPrice | number : '1.2-2'}}$</p>
   <p>Status: {{order.status}}</p>
   <p>Creation date: {{order.creationDate | date: 'dd/MM/yyyy hh/mm' }}</p>
+  <p>Creator: {{order.creator.username}}</p>
 </div>

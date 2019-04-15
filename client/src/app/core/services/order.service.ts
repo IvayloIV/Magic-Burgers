@@ -30,4 +30,8 @@ export class OrderService {
   getAllOrders(): Observable<OrderInfo[]> {
     return this.http.get<OrderInfo[]>(BASE_URL + 'all');
   }
+
+  changeStatus(burgerId: string, body) {
+    return this.http.patch(BASE_URL + `edit/${burgerId}`, body);
+  } 
 }

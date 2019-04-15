@@ -16,6 +16,7 @@ import { AuthGuard } from './core/guards/auth.guard';
 import { UserGuard } from './core/guards/user.guard';
 import { appReducers } from './store/app.reducers';
 import { AdminGuard } from './core/guards/admin.guard';
+import { BlockGuard } from './core/guards/block.guard';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { AdminGuard } from './core/guards/admin.guard';
     },
     AuthGuard,
     UserGuard,
-    AdminGuard
+    AdminGuard,
+    BlockGuard
   ],
   bootstrap: [AppComponent]
 })

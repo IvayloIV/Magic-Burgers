@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.state';
 import { Observable } from 'rxjs';
-import { UserProfile } from 'src/app/core/models/user/user-profile.model';
+import { UserDetails } from 'src/app/core/models/user/user-details.model';
 
 @Component({
   selector: 'app-user-profile',
@@ -10,7 +10,7 @@ import { UserProfile } from 'src/app/core/models/user/user-profile.model';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-  user$: Observable<UserProfile>;
+  user$: Observable<UserDetails>;
 
   constructor(private store: Store<AppState>) { }
 

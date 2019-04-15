@@ -18,7 +18,10 @@
             <ng-template #dislike><button (click)="dislikeBurger(burger._id)">Dislike</button></ng-template>
         </div>
     </div>
-    <app-comment-create *ngIf="isAuth; else login"></app-comment-create>
-    <ng-template #login><h3><a routerLink="/auth/login">Login to post a comments.</a></h3></ng-template>
+    <app-comment-create *ngIf="isAuth && !isBlocked; else login"></app-comment-create>
+    <ng-template #login>
+        <h3 *ngIf="!isBlocked"><a routerLink="/auth/login">Login to post a comments.</a></h3>
+        <h3 *ngIf="isBlocked">You are blocked.</h3>
+    </ng-template>
     <app-comment-list></app-comment-list>
 </section>

@@ -1,5 +1,6 @@
 import { BurgerDetails } from '../burger/burger-details.model';
 import { ToppingInfo } from '../topping/topping-info.model';
+import { UserInfo } from '../user/user-info.model';
 
 export interface OrderDetails {
     _id: string;
@@ -11,4 +12,5 @@ export interface OrderDetails {
     toppings: ToppingInfo[];
     products: string[];
     creationDate: string;
+    creator: UserInfo;
 }

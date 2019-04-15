@@ -1,4 +1,4 @@
-<section class="my-orders" *ngIf="(orders$ | async) as orders">
-    <h3>All orders</h3>
-    <app-order-list [orders]="orders" [canEdit]="true"></app-order-list>
-  </section>
+<section class="all-orders" *ngIf="(orders$ | async) as orders">
+	<h3>All orders</h3>
+	<app-order-list [orders]="orders" [canEdit]="true"></app-order-list>
+</section>

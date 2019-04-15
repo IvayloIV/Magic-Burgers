@@ -1,0 +1,32 @@
+<div>
+  <img [src]="order.burger.imageUrl" alt="order-image">
+  <p>Name: {{order.burger.name}}</p>
+  <div>
+    <h4>Products:</h4>
+    <p *ngFor="let product of order.products">{{product}}</p>
+  </div>
+  <div>
+    <h4>Toppings:</h4>
+    <p *ngFor="let topping of order.toppings">{{topping.name}}</p>
+  </div>
+  <p>Delivery Type: {{order.deliveryType}}</p>
+  <p>Quantity: {{order.quantity}}</p>
+  <p>Total Price: {{order.totalPrice}}</p>
+  <label>
+    <input type="radio" name="status" value="Pending" (click)="changeStatus('Pending')" [checked]="order.status === 'Pending'">
+    <span>Pending</span>
+  </label>
+  <label>
+    <input type="radio" name="status" value="In Progress" (click)="changeStatus('In Progress')" [checked]="order.status === 'In Progress'">
+    <span>In Progress</span>
+  </label>
+  <label>
+    <input type="radio" name="status" value="In Transit" (click)="changeStatus('In Transit')" [checked]="order.status === 'In Transit'">
+    <span>In Transit</span>
+  </label>
+  <label>
+    <input type="radio" name="status" value="Delivered" (click)="changeStatus('Delivered')" [checked]="order.status === 'Delivered'">
+    <span>Delivered</span>
+  </label>
+  <button (click)="editOrder()">Edit</button>
+</div>

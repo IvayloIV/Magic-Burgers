@@ -6,21 +6,20 @@ import { tap, mapTo } from 'rxjs/operators';
 
 import { AppState } from 'src/app/store/app.state';
 import { UserService } from '../../services/user.service';
-import { UserDetails } from '../../models/user/user-details.model';
-import { GetUserProfile } from 'src/app/store/actions/user.action';
+import { GetAllUsers } from 'src/app/store/actions/user.action';
+import { UserInfo } from '../../models/user/user-info.model';
 
 @Injectable()
-export class UserProfileResolver implements Resolve<boolean> {
+export class UserAllResolver implements Resolve<boolean> {
     constructor(
         private userService: UserService,
         private store: Store<AppState>
     ) { }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-        const username = route.params['username'];
-        return this.userService.getUserProfile(username)
-            .pipe(tap((data: UserDetails) => {
-                this.store.dispatch(new GetUserProfile(data));
+        return this.userService.getAllUsers()
+            .pipe(tap((data: UserInfo[]) => {
+                this.store.dispatch(new GetAllUsers(data));
             }), mapTo(true));
     }
 

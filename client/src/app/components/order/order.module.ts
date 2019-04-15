@@ -13,6 +13,7 @@ import { OrderDetailsResolver } from 'src/app/core/resolvers/order/order-details
 import { AllOrdersComponent } from './all-orders/all-orders.component';
 import { AllOrdersResolver } from 'src/app/core/resolvers/order/all-orders.resolver';
 import { OrderListComponent } from './order-list/order-list.component';
+import { OrderEditComponent } from './order-edit/order-edit.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { OrderListComponent } from './order-list/order-list.component';
     MyOrdersComponent,
     OrderDetailsComponent,
     AllOrdersComponent,
-    OrderListComponent
+    OrderListComponent,
+    OrderEditComponent
   ],
   imports: [
     CommonModule,

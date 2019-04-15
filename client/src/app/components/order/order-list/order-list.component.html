@@ -4,7 +4,7 @@
         <th>Burger name</th>
         <th>Delivery type</th>
         <th>Quantity</th>
-        <th>Price</th>
+        <th>Total price</th>
         <th>Status</th>
         <th>Actions</th>
     </tr>
@@ -16,7 +16,7 @@
         <td>{{order.totalPrice | number : '1.2-2'}}</td>
         <td>{{order.status}}</td>
         <td>
-            <a *ngIf="canEdit" routerLink="/order/edit/{{order._id}}">Edit</a>
+            <a *ngIf="canEdit && order.status !== 'Delivered'" routerLink="/order/edit/{{order._id}}">Edit</a>
             <a routerLink="/order/details/{{order._id}}">Details</a>
         </td>
     </tr>

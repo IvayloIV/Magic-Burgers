@@ -22,6 +22,7 @@ module.exports = {
 
         try {
             const comments = await Comment.find({ burger: burgerId })
+				.populate('creator')
 				.sort({ creationDate: -1 });
             res.status(200).json(comments);
         } catch (err) {
@@ -54,7 +55,7 @@ module.exports = {
                 throw error;
             }
 
-            const newComment = await Comment.create({ 
+            let newComment = await Comment.create({ 
                 message, 
                 rating, 
                 creator: user._id,
@@ -65,6 +66,7 @@ module.exports = {
 
             burger.comments.push(newComment._id);
             await burger.save();
+			newComment.creator = user;
             res.status(201).json({ success: true, message: 'Comment created success.', comment: newComment });
         } catch (err) {
             next(err);

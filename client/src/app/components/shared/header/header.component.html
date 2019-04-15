@@ -10,6 +10,7 @@
                   <a *ngIf="authService.isAdmin()" class="nav-link" routerLink="/topping/create">Create Topping</a>
                   <a *ngIf="authService.isAdmin()" class="nav-link" routerLink="/order/all">Orders</a>
                   <a *ngIf="authService.isAuthenticated()" class="nav-link" routerLink="/order/my">My Orders</a>
+                  <a *ngIf="authService.isAdmin()" class="nav-link" routerLink="/user/all">Users</a>
                   <a *ngIf="authService.isAuthenticated()" class="nav-link" routerLink="/user/profile/my">Profile</a>
                   <a *ngIf="authService.isAuthenticated()" class="nav-link" (click)="logout()" href="javascript:void(0)">Logout</a>
                   <a *ngIf="!authService.isAuthenticated()" class="nav-link" routerLink="/auth/login">Login</a>

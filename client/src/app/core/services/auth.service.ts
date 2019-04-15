@@ -30,4 +30,8 @@ export class AuthService {
   isAdmin(): boolean {
     return localStorage.getItem('isAdmin') === 'true';
   }
+
+  isBlocked(): boolean {
+    return localStorage.getItem('blocked') === 'true';
+  }
 }

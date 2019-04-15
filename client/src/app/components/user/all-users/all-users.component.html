@@ -1,0 +1,14 @@
+<section class="user-all">
+  <div *ngFor="let user of (users$ | async)">
+    <img [src]="user.imageUrl" alt="user-image">
+    <p>{{user.username}}</p>
+    <p>Age: {{user.age}}</p>
+    <p>Comments count: {{user.comments.length}}</p>
+    <p>Orders count: {{user.orders.length}}</p>
+    <div>
+      <a routerLink="/user/profile/{{user.username}}">Details</a>
+      <button *ngIf="!user.blocked; else unblock" (click)="blockUser(user._id)">Block</button>
+      <ng-template #unblock><button (click)="unblockUser(user._id)">Unblock</button></ng-template>
+    </div>
+  </div>
+</section>

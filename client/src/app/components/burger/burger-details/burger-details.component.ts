@@ -5,6 +5,7 @@ import { BurgerDetails } from 'src/app/core/models/burger/burger-details.model';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { BurgerService } from 'src/app/core/services/burger.service';
+import { burgerDetails } from 'src/app/store/selectors/burger.selector';
 
 @Component({
   selector: 'app-burger-details',
@@ -15,6 +16,7 @@ export class BurgerDetailsComponent implements OnInit {
   burger$: Observable<BurgerDetails>;
   isAuth: boolean;
   userId: string;
+  isBlocked: boolean;
 
   constructor(
     private store: Store<AppState>,
@@ -23,9 +25,10 @@ export class BurgerDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.burger$ = this.store.select(state => state.burger.burgerDetails);
+    this.burger$ = this.store.select(burgerDetails);
     this.isAuth = this.authService.isAuthenticated();
     this.userId = localStorage.getItem('userId');
+    this.isBlocked = this.authService.isBlocked();
   }
 
   likeBurger(id: string) {

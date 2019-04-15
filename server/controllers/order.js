@@ -146,7 +146,8 @@ module.exports = {
         try {
             const order = await Order.findById(id)
                 .populate('toppings')
-                .populate('burger');
+                .populate('burger')
+				.populate('creator');
             if (!order) {
                 let error = new Error('Order not found.');
                 error.statusCode = 400;

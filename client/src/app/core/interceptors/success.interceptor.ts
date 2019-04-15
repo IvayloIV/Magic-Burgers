@@ -46,6 +46,13 @@ export class SuccessInterceptor implements HttpInterceptor {
                 } else if (req.url.endsWith('/topping/create')) {
                     this.toastr.success('Topping created success.');
                     this.route.navigate(['/topping/list']);
+                } else if (req.url.indexOf('/user/block') !== -1) {
+                    this.toastr.success('User blocked successful.');
+                } else if (req.url.indexOf('/user/unblock') !== -1) {
+                    this.toastr.success('User unblocked successful.');
+                } else if (req.url.indexOf('/order/edit') !== -1) {
+                    this.toastr.success('Order edited successful.');
+                    this.route.navigate(['/order/all']);
                 }
             }
         }));
