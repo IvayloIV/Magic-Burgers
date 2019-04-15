@@ -1,0 +1,15 @@
+<div [formGroup]="orderFrom">
+  <h3>Delivery type:</h3>
+  <label>
+    <input type="radio" formControlName="deliveryType" value="Regular" checked="checked">
+    <span>Regular</span>
+  </label>
+  <label>
+    <input type="radio" formControlName="deliveryType" value="Fast">
+    <span>Fast</span>
+  </label>
+  <label>
+    <input type="radio" formControlName="deliveryType" value="Express">
+    <span>Express</span>
+  </label>
+</div>

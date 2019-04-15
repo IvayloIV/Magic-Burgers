@@ -10,19 +10,12 @@ import { AppComponent } from './app.component';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { SuccessInterceptor } from './core/interceptors/success.interceptor';
-import { HeaderComponent } from './components/shared/header/header.component';
-import { FooterComponent } from './components/shared/footer/footer.component';
-import { AuthGuard } from './core/guards/auth.guard';
-import { UserGuard } from './core/guards/user.guard';
 import { appReducers } from './store/app.reducers';
-import { AdminGuard } from './core/guards/admin.guard';
-import { BlockGuard } from './core/guards/block.guard';
+import { SharedModule } from './components/shared/shared.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +23,8 @@ import { BlockGuard } from './core/guards/block.guard';
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    StoreModule.forRoot(appReducers)
+    StoreModule.forRoot(appReducers),
+    SharedModule
   ],
   providers: [
     {
@@ -47,11 +41,7 @@ import { BlockGuard } from './core/guards/block.guard';
       provide: HTTP_INTERCEPTORS,
       useClass: SuccessInterceptor,
       multi: true
-    },
-    AuthGuard,
-    UserGuard,
-    AdminGuard,
-    BlockGuard
+    }
   ],
   bootstrap: [AppComponent]
 })

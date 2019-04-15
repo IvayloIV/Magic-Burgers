@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.state';
 import { OrderInfo } from 'src/app/core/models/order/order-info.model';
 import { Observable } from 'rxjs';
+import { myOrders } from 'src/app/store/selectors/order.selector';
 
 @Component({
   selector: 'app-my-orders',
@@ -15,7 +16,7 @@ export class MyOrdersComponent implements OnInit {
   constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
-    this.myOrders$ = this.store.select(state => state.order.myOrders);
+    this.myOrders$ = this.store.select(myOrders);
   }
 
 }

@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ToppingListComponent } from './topping-list/topping-list.component';
-import { ToppingInfoResolver } from 'src/app/core/resolvers/topping/topping-info.resolver';
-import { ToppingCreateComponent } from './topping-create/topping-create.component';
 import { AdminGuard } from 'src/app/core/guards/admin.guard';
+
+import { ToppingListComponent } from './topping-list/topping-list.component';
+import { ToppingCreateComponent } from './topping-create/topping-create.component';
+import { ToppingInfoResolver } from 'src/app/core/resolvers/topping/topping-info.resolver';
 
 const routes: Routes = [
   { 
@@ -11,7 +12,11 @@ const routes: Routes = [
     component: ToppingListComponent,
     resolve: { toppings: ToppingInfoResolver }
   },
-  { path: 'create', component: ToppingCreateComponent, canActivate: [AdminGuard] }
+  { 
+    path: 'create', 
+    component: ToppingCreateComponent, 
+    canActivate: [AdminGuard] 
+  }
 ];
 
 @NgModule({

@@ -13,7 +13,7 @@
         <td>{{order.burger.name}}</td>
         <td>{{order.deliveryType}}</td>
         <td>{{order.quantity}}</td>
-        <td>{{order.totalPrice | number : '1.2-2'}}</td>
+        <td>{{order.totalPrice | numberRound: 2}}</td>
         <td>{{order.status}}</td>
         <td>
             <a *ngIf="canEdit && order.status !== 'Delivered'" routerLink="/order/edit/{{order._id}}">Edit</a>

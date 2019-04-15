@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/store/app.state';
 import { Observable } from 'rxjs';
+import { AppState } from 'src/app/store/app.state';
 import { OrderInfo } from 'src/app/core/models/order/order-info.model';
+import { allOrders } from 'src/app/store/selectors/order.selector';
 
 @Component({
   selector: 'app-all-orders',
@@ -15,7 +16,7 @@ export class AllOrdersComponent implements OnInit {
   constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
-    this.orders$ = this.store.select(state => state.order.allOrders);
+    this.orders$ = this.store.select(allOrders);
   }
 
 }

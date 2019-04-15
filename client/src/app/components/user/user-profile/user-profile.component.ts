@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/store/app.state';
 import { Observable } from 'rxjs';
+import { AppState } from 'src/app/store/app.state';
+
 import { UserDetails } from 'src/app/core/models/user/user-details.model';
+import { userProfile } from 'src/app/store/selectors/user.selector';
 
 @Component({
   selector: 'app-user-profile',
@@ -15,7 +17,7 @@ export class UserProfileComponent implements OnInit {
   constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
-    this.user$ = this.store.select(state => state.user.userProfile);
+    this.user$ = this.store.select(userProfile);
   }
 
 }

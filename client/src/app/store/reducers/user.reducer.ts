@@ -19,33 +19,31 @@ function setAllUsers(state: UserState, payload) {
 }
 
 function blockUser(state: UserState, payload) {
-    const users = [];
-    for (let user of state.allUsers) {
-        if (user._id === payload) {
-            users.push(Object.assign({}, user, { blocked: true }));
-        } else {
-            users.push(user);
-        }
-    }
-
+    const users = getNewUsers(state,payload, true);
     return Object.assign({}, state, { 
         allUsers: users
     });
 }
 
 function unblockUser(state: UserState, payload) {
+    const users = getNewUsers(state,payload, false);
+    return Object.assign({}, state, { 
+        allUsers: users
+    });
+}
+
+function getNewUsers(state: UserState, payload, blocked: boolean) {
     const users = [];
+
     for (let user of state.allUsers) {
         if (user._id === payload) {
-            users.push(Object.assign({}, user, { blocked: false }));
+            users.push(Object.assign({}, user, { blocked }));
         } else {
             users.push(user);
         }
     }
-    
-    return Object.assign({}, state, { 
-        allUsers: users
-    });
+
+    return users;
 }
 
 export function userReducer(

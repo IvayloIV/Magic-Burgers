@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CommentService } from 'src/app/core/services/comment.service';
 import { ActivatedRoute } from '@angular/router';
+import { CommentService } from 'src/app/core/services/comment.service';
 
 @Component({
   selector: 'app-comment-create',

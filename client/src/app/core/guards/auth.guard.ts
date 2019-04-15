@@ -1,9 +1,11 @@
 import { CanLoad, Route, UrlSegment, Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
-import { ToastrService } from 'ngx-toastr';
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../services/auth.service';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class AuthGuard implements CanLoad {
     constructor(
         private authService: AuthService,

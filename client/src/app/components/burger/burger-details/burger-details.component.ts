@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/store/app.state';
-import { BurgerDetails } from 'src/app/core/models/burger/burger-details.model';
 import { Observable } from 'rxjs';
+import { AppState } from 'src/app/store/app.state';
+
+import { burgerDetails } from 'src/app/store/selectors/burger.selector';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { BurgerService } from 'src/app/core/services/burger.service';
-import { burgerDetails } from 'src/app/store/selectors/burger.selector';
+import { BurgerDetails } from 'src/app/core/models/burger/burger-details.model';
 
 @Component({
   selector: 'app-burger-details',
@@ -27,8 +28,8 @@ export class BurgerDetailsComponent implements OnInit {
   ngOnInit() {
     this.burger$ = this.store.select(burgerDetails);
     this.isAuth = this.authService.isAuthenticated();
-    this.userId = localStorage.getItem('userId');
     this.isBlocked = this.authService.isBlocked();
+    this.userId = localStorage.getItem('userId');
   }
 
   likeBurger(id: string) {

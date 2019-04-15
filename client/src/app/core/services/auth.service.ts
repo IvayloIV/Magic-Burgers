@@ -4,6 +4,8 @@ import { Register } from '../models/auth/register.model';
 import { Login } from '../models/auth/login.model';
 
 const BASE_URL = 'http://localhost:5000/user/';
+const REGISTER_URL = BASE_URL + 'register';
+const LOGIN_URL = BASE_URL + 'login';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +14,11 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   register(body: Register) {
-    return this.http.post<Register>(BASE_URL + 'register', body);
+    return this.http.post<Register>(REGISTER_URL, body);
   }
 
   login(body: Login) {
-    return this.http.post<Login>(BASE_URL + 'login', body);
+    return this.http.post<Login>(LOGIN_URL, body);
   }
 
   logout(): void {

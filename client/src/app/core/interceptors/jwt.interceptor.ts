@@ -1,6 +1,6 @@
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { Injectable } from '@angular/core';
 import {
     HttpResponse,
     HttpRequest,

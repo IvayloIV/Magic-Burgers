@@ -1,9 +1,11 @@
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { AuthService } from '../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../services/auth.service';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class AdminGuard implements CanActivate {
     constructor(
         private authService: AuthService,

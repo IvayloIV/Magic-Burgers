@@ -1,19 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/store/app.state';
-import { BurgerDetails } from 'src/app/core/models/burger/burger-details.model';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
+import { AppState } from 'src/app/store/app.state';
+
+import { BurgerDetails } from 'src/app/core/models/burger/burger-details.model';
 import { OrderService } from 'src/app/core/services/order.service';
+import { burgerDetails } from 'src/app/store/selectors/burger.selector';
 
 @Component({
   selector: 'app-order-create',
   templateUrl: './order-create.component.html',
   styleUrls: ['./order-create.component.css']
 })
-export class OrderCreateComponent implements OnInit {
+export class OrderCreateComponent implements OnInit, OnDestroy {
   burger: BurgerDetails;
+  sub: Subscription;
   form: FormGroup;
-  toppings = {};
 
   constructor(
     private store: Store<AppState>,
@@ -22,9 +25,9 @@ export class OrderCreateComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.store.select(state => state.burger.burgerDetails)
+    this.sub = this.store.select(burgerDetails)
       .subscribe(data => {
-        this.burger = data
+        this.burger = data;
         this.buildForm();
       });
   }
@@ -41,46 +44,11 @@ export class OrderCreateComponent implements OnInit {
   }
 
   increaseQuantity() {
-    const currentQuantity = this.f['quantity'].value;
-    this.f['quantity'].setValue(currentQuantity + 1);
+    this.changeQuantity(1);
   }
 
   decreaseQuantity() {
-    const currentQuantity = this.f['quantity'].value;
-    if (currentQuantity > 1) {
-      this.f['quantity'].setValue(currentQuantity - 1);
-    }
-  }
-
-  changeProducts(product: string) {
-    let currentProducts = this.f['products'].value;
-    const indexOfProduct = currentProducts.indexOf(product);
-
-    if (indexOfProduct === -1) {
-      currentProducts.push(product);
-    } else {
-      currentProducts.splice(indexOfProduct, 1);
-    }
-
-    this.f['products'].setValue(currentProducts);
-  }
-
-  changeToppings(event) {
-    const id = event._id;
-    const price = event.price;
-    let currentToppings = this.f['toppings'].value;
-    const indexOfTopping = currentToppings.indexOf(id);
-    this.toppings[id] = price;
-
-    if (indexOfTopping === -1) {
-      currentToppings.push(id);
-      this.changePrice('add', price);
-    } else {
-      currentToppings.splice(indexOfTopping, 1);
-      this.changePrice('subtract', price)
-    }
-
-    this.f['toppings'].setValue(currentToppings);
+    this.changeQuantity(-1);
   }
 
   get f() {
@@ -93,14 +61,14 @@ export class OrderCreateComponent implements OnInit {
     this.orderService.createOrder(payload, this.burger._id).subscribe();
   }
 
-  private changePrice(comment: string, price: number) {
-    let currentValue = this.f['totalPrice'].value;
-    if (comment === 'add') {
-      currentValue += price;
-    } else {
-      currentValue -= price;
+  private changeQuantity(quantity: number) {
+    const currentQuantity = this.f['quantity'].value;
+    if (currentQuantity + quantity >= 1) {
+      this.f['quantity'].setValue(currentQuantity + quantity);
     }
+  }
 
-    this.f['totalPrice'].setValue(currentValue);
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 }

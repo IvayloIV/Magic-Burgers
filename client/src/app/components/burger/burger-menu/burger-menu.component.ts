@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/store/app.state';
 import { Observable } from 'rxjs';
+import { AppState } from 'src/app/store/app.state';
+
 import { BurgerInfo } from 'src/app/core/models/burger/burger-info.model';
+import { allBurgers } from 'src/app/store/selectors/burger.selector';
 
 @Component({
   selector: 'app-burger-menu',
@@ -14,12 +16,10 @@ export class BurgerMenuComponent implements OnInit {
   pageSize: number = 3;
   currentPage: number = 1;
 
-  constructor(
-    private store: Store<AppState>
-  ) { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
-    this.menu$ = this.store.select(state => state.burger.burgers);
+    this.menu$ = this.store.select(allBurgers);
   }
 
   pageChanged(page) {

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ToppingInfo } from 'src/app/core/models/topping/topping-info.model';
-import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { AppState } from 'src/app/store/app.state';
+
+import { ToppingInfo } from 'src/app/core/models/topping/topping-info.model';
+import { toppings } from 'src/app/store/selectors/topping.selector';
 
 @Component({
   selector: 'app-topping-list',
@@ -15,7 +17,7 @@ export class ToppingListComponent implements OnInit {
   constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
-    this.toppings$ = this.store.select(state => state.topping.toppings);
+    this.toppings$ = this.store.select(toppings);
   }
 
 }

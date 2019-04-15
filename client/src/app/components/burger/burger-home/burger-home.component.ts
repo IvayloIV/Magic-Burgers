@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/store/app.state';
 import { TopBurgers } from 'src/app/core/models/burger/top-burgers.model';
+import { topBurgers } from 'src/app/store/selectors/burger.selector';
 
 @Component({
   selector: 'app-burger-home',
@@ -12,12 +13,10 @@ import { TopBurgers } from 'src/app/core/models/burger/top-burgers.model';
 export class BurgerHomeComponent implements OnInit {
   topBurgers$: Observable<TopBurgers>;
 
-  constructor(
-    private store: Store<AppState>
-  ) { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
-    this.topBurgers$ = this.store.select(state => state.burger.topBurgers);
+    this.topBurgers$ = this.store.select(topBurgers);
   }
 
 }
