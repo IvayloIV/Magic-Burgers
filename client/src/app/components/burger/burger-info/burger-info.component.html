@@ -1,8 +1,16 @@
-<img [src]="burger.imageUrl" alt="burger-image">
-<h5>{{burger.name}}</h5>
-<p>Price: {{burger.price}}$</p>
-<div>Creation Date: {{burger.creationDate | date:"dd/MM/yy, hh:mm" }}</div>
-<div>Comments: {{burger.comments.length}}</div>
-<div>Likes: {{burger.likes.length}}</div>
-<a *ngIf="isAuth" routerLink="/order/create/{{burger._id}}"><button>Order</button></a>
-<a routerLink="/burger/details/{{burger._id}}"><button>Details</button></a>
+<div class="burger-name">
+    <h4>{{burger.name}}</h4>
+</div>
+<div class="burger-details">
+    <img [src]="burger.imageUrl" alt="burger-image">
+    <p>Price: {{burger.price}}$</p>
+    <div class="icons">
+        <div><i class="far fa-clock"></i> {{burger.creationDate | date:"dd/MM/yy" }}</div>
+        <div><i class="far fa-comments"></i> {{burger.comments.length}}</div>
+        <div><i class="far fa-thumbs-up"></i> {{burger.likes.length}}</div>
+    </div>
+    <div class="buttons">
+        <a *ngIf="isAuth" routerLink="/order/create/{{burger._id}}"><button>Order</button></a>
+        <a routerLink="/burger/details/{{burger._id}}"><button>Details</button></a>
+    </div>
+</div>

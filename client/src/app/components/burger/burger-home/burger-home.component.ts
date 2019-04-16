@@ -8,7 +8,7 @@ import { topBurgers } from 'src/app/store/selectors/burger.selector';
 @Component({
   selector: 'app-burger-home',
   templateUrl: './burger-home.component.html',
-  styleUrls: ['./burger-home.component.css']
+  styleUrls: ['./burger-home.component.scss']
 })
 export class BurgerHomeComponent implements OnInit {
   topBurgers$: Observable<TopBurgers>;

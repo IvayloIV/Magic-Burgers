@@ -1,8 +1,14 @@
-<div>
-  <h4>{{title}}</h4>
-</div>
-<div>
-  <div class="burger-info" *ngFor="let burger of burgers">
-    <app-burger-info [burger]="burger"></app-burger-info>
+<section class="burgers-home">
+  <div class="burger-title">
+    <h4>{{name}}</h4>
+    <hr>
   </div>
-</div>
+  <div class="burger-list">
+    <div class="burger-info" *ngFor="let burger of burgers">
+      <app-burger-info [burger]="burger"></app-burger-info>
+    </div>
+  </div>
+  <p class="menu-button">
+    <a routerLink="/burger/menu"><button>Menu <i class="fas fa-angle-double-right"></i></button></a>
+  </p>
+</section>

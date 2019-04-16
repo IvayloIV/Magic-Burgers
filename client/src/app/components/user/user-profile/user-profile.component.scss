@@ -1,0 +1,61 @@
+
+.my-profile {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../../../../assets/images/profile-background.jpg') no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+}
+
+.profile-details {
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    background: #EAD4C4;
+    background: #F1F2EE;
+    border-radius: 10px;
+    box-shadow: 5px 5px 28px 0px rgba(0,0,0,0.6);
+    opacity: 0.9;
+    
+    img {
+        width: 100%;
+        border-radius: 50%;
+    }
+
+    div {
+        width: 25%;
+        text-align: left;
+
+        span {
+            font-weight: 600;
+        }
+    }
+
+    div:nth-of-type(2) {
+        border-right: 2px solid #ff8d00;
+    }
+}
+
+.profile-title {
+    text-align: center;
+    
+    h2 {
+        margin: 0;
+        padding-top: 3rem;
+        color: white;
+        font-size: 2rem;
+    }
+
+    hr {
+        width: 25%;
+        margin-bottom: 1.5rem;
+        display: block;
+        border: none;
+        background: white;
+        height: 2px;
+    }
+}

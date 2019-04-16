@@ -1,11 +1,26 @@
 <section class="my-profile" *ngIf="(user$ | async) as user">
-  <img [src]="user.imageUrl" alt="user-image">
-  <p>Username: {{user.username}}</p>
-  <p>Email: {{user.email}}</p>
-  <p>First Name: {{user.firstName}}</p>
-  <p>Last Name: {{user.lastName}}</p>
-  <p>Age: {{user.age}}</p>
-  <p>Orders count: {{user.orders.length}}</p>
-  <p>Comments count: {{user.comments.length}}</p>
-  <app-user-info-comments *ngFor="let comment of user.comments" [comment]="comment"></app-user-info-comments>
+  <div class="profile-details">
+      <div>
+        <img [src]="user.imageUrl" alt="user-image">
+      </div>
+      <div>
+        <p><span>Username:</span> {{user.username}}</p>
+        <p><span>Email:</span> {{user.email}}</p>
+        <p><span>Age:</span> {{user.age}}</p>
+      </div>
+      <div>
+        <p><span>Last Name:</span> {{user.lastName}}</p>
+        <p><span>First Name:</span> {{user.firstName}}</p>
+        <p><span>Orders count:</span> {{user.orders.length}}</p>
+        <p><span>Comments count:</span> {{user.comments.length}}</p>
+      </div>
+  </div>
+  <div class="profile-comments">
+    <div class="profile-title">
+        <h2 *ngIf="user.comments.length > 0; else emptyComments">Comment:</h2>
+        <ng-template #emptyComments><h2>0 comments</h2></ng-template>
+        <hr>
+    </div>
+    <app-user-info-comments *ngFor="let comment of user.comments" [comment]="comment"></app-user-info-comments>
+  </div>
 </section>

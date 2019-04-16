@@ -1,4 +1,10 @@
-<p>{{comment.message}}</p>
-<p>Rating: {{comment.rating}}</p>
-<p>Creation data: {{comment.creationDate}}</p>
-<a routerLink="/burger/details/{{comment.burger}}">Details</a>
+<div class="comments-details">
+    <div>
+        <p>{{comment.message}}</p>
+        <p>Rating: {{comment.rating}}</p>
+    </div>
+    <div>
+        <p><i class="far fa-clock"></i> {{comment.creationDate | date: 'dd/MM/yyyy hh:mm'}}</p>
+        <a routerLink="/burger/details/{{comment.burger}}">Details</a>
+    </div>
+</div>

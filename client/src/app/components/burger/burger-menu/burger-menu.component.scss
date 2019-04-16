@@ -1,0 +1,59 @@
+.menu {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../../../../assets/images/menu-background.jpg') no-repeat center;
+    background-size: cover;
+}
+
+.menu-list {
+    display: flex;
+    width: 85%;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.menu-item {
+    width: 28%;
+    text-align: center;
+}
+
+h2 {
+    margin: 0;
+}
+
+.menu-header {
+    margin: 0;
+    padding-top: 3rem;
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+hr {
+    width: 20%;
+    margin-bottom: 1.5rem;
+    display: block;
+    border: none;
+    background: white;
+    height: 2px;
+}
+
+pagination-controls {
+    text-align: center;
+    margin: 0;
+    padding: 1rem;
+    font-size: 1.2rem;
+}
+
+pagination-controls::ng-deep {
+    .ngx-pagination {
+        padding: 0;
+    }
+
+    &.current {
+        background: #EA7D2C;
+    }
+
+    a {
+        color: white;
+        outline: none;
+    }
+}

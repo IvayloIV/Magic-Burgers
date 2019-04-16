@@ -9,7 +9,7 @@ import { allBurgers } from 'src/app/store/selectors/burger.selector';
 @Component({
   selector: 'app-burger-menu',
   templateUrl: './burger-menu.component.html',
-  styleUrls: ['./burger-menu.component.css']
+  styleUrls: ['./burger-menu.component.scss']
 })
 export class BurgerMenuComponent implements OnInit {
   menu$: Observable<BurgerInfo[]>;

@@ -1,0 +1,97 @@
+.login {
+    background: #ffd1aa;
+    display: flex;
+    justify-content: center;
+    padding: 3rem 0;
+
+    img {
+        width: 100%;
+    }
+    
+    &-left {
+        background: white;
+        margin-right: 7px;
+        width: 25%;
+        padding: 6rem 0;
+        box-shadow: rgba(255, 255, 255, 0.41) 13px 16px 12px;
+    }
+    
+    &-right {
+        background: white;
+        margin-left: 7px;
+        box-shadow: rgba(255, 255, 255, 0.41) 13px 16px 12px;
+        padding: 1rem 2.5rem;
+        text-align: center;
+        width: 25%;
+
+        span {
+            display: block;
+        }
+
+        h2 {
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+            font-family: 'Cookie', cursive;
+            font-size: 3.5rem;
+            font-weight: 400;
+            color: #ff7244;
+        }
+    }
+
+    form {
+        div {
+            text-align: left;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            position: relative;
+        }
+
+        span {
+            margin: 0 auto;
+        }
+
+        label {
+            padding: 1.2rem 0;
+            padding-bottom: 0.3rem;
+        }
+
+        input {
+            width: 100%;
+            border: none;
+            border-bottom: 2px solid #dadada;
+            padding: 0.3rem 0;
+            font-size: 1.05rem;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            width: 40%;
+            background: #ff7244;
+            color: white;
+            border: none;
+            outline: none;
+            padding: 0.6rem 0.6rem;
+            border-radius: 0.5rem;
+            font-size: 1.1rem;
+            margin-top: 3rem;
+            
+            &:hover:not(:disabled) {
+                background: #e46e47;
+                cursor: pointer;
+            }
+        }
+
+        .error-message {
+            color: #f00606;
+            font-style: italic;
+            position: absolute;
+            width: 100%;
+            font-size: 1rem;
+            bottom: -1rem;
+            left: 0;
+        }
+    }
+}

@@ -1,0 +1,56 @@
+.burgers-home {
+    text-align: center;
+
+    .burger-list {
+        display: flex;
+        width: 85%;
+        margin: 0 auto;
+        justify-content: space-between;
+    }
+
+    .burger-info {
+        width: 28%;
+    }
+
+    h4 {
+        margin: 0;
+        padding-top: 3rem;
+        color: white;
+        font-size: 2rem;
+    }
+
+    hr {
+        width: 35%;
+        margin-bottom: 1.5rem;
+        display: block;
+        border: none;
+        background: white;
+        height: 2px;
+    }
+
+    .menu-button {
+        text-align: right;
+        padding-right: 7rem;
+        margin-top: 2rem;
+        margin-bottom: 0;
+
+        button {
+            border: none;
+            background: #EA7D2C;
+            padding: 0.7rem 2rem;
+            border-radius: 0.5rem;
+            color: white;
+            font-size: 1.05rem;
+            outline: none;
+            cursor: pointer;
+            
+            &:hover {
+                background: rgb(221, 118, 40);
+            }
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+}

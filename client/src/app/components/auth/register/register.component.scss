@@ -1,0 +1,88 @@
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.register {
+    background: #FFD9B0;
+    padding: 3rem 0;
+}
+
+.register-container {
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+
+    .register-image {
+        width: 55%;
+
+        img {
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+    }
+
+    .register-form {
+        width: 45%;
+        text-align: center;
+        background: #aff267;
+        padding: 1rem 0;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+
+        h2 {
+            font-family: 'Cookie', cursive;
+            font-weight: 400;
+            font-size: 3.5rem;
+            margin: 2rem 0 1.5rem 0;
+        }
+
+        input {
+            width: 80%;
+            background: no-repeat;
+            border: none;
+            border-bottom: 2px solid rgb(0, 0, 0);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            outline: none;
+            padding: 0.4rem 0.1rem;
+            box-sizing: border-box;
+
+            &::placeholder {
+                color: rgb(65, 61, 61);
+            }
+        }
+
+        input[type="submit"] {
+            border: none;
+            background: #f2b17b;
+            width: 28%;
+            padding: 0.85rem 1rem;
+            color: black;
+            border-radius: 7px;
+            outline: none;
+            box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.33);
+            margin-top: 0.5rem;
+            font-size: 1.06rem;
+            
+            &:hover:not(:disabled) {
+                cursor: pointer;
+                background: rgb(241, 197, 150);
+            }
+        }
+
+        .input-field {
+            position: relative;
+        }
+
+        .error-message {
+            position: absolute;
+            bottom: 0rem;
+            left: 3rem;
+            color: #c90505;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+    }
+
+}

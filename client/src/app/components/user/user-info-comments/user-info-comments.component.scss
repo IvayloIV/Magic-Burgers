@@ -1,0 +1,29 @@
+.comments-details {
+    width: 45%;
+    margin: 1rem auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 3rem;
+    background-color: #DCDDD9;
+    border-radius: 10px;
+    box-shadow: 5px 5px 28px 0px rgba(0, 0, 0, 0.6);
+    box-sizing: border-box;
+    opacity: 0.9;
+
+    a {
+        background: #faa64f;
+        padding: 0.6rem;
+        display: block;
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+        border-radius: 6px;
+        box-shadow: 4px 4px 24px 0px rgba(0,0,0,0.27);
+        outline: none;
+        text-align: center;
+        
+        &:hover {
+            background: #d37715;
+        }
+    }
+}
