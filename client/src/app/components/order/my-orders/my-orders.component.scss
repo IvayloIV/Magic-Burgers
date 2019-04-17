@@ -1,0 +1,23 @@
+.my-orders {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../../../../assets/images/my-orders.jpeg') no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    padding-bottom: 2rem;
+}
+
+h2 {
+    margin: 0;
+    padding-top: 3rem;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+}
+
+hr {
+    width: 27%;
+    margin-bottom: 1.5rem;
+    display: block;
+    border: none;
+    background: white;
+    height: 2px;
+}

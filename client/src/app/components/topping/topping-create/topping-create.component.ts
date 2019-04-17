@@ -6,7 +6,7 @@ import { ToppingService } from 'src/app/core/services/topping.service';
 @Component({
   selector: 'app-topping-create',
   templateUrl: './topping-create.component.html',
-  styleUrls: ['./topping-create.component.css']
+  styleUrls: ['./topping-create.component.scss']
 })
 export class ToppingCreateComponent implements OnInit {
   form: FormGroup;
@@ -24,8 +24,8 @@ export class ToppingCreateComponent implements OnInit {
     this.form = this.fb.group({
       name: ['', Validators.required],
       origin: ['', Validators.required],
-      price: ['0', [Validators.required, Validators.min(0.1)]],
-      weight: ['0', [Validators.required, Validators.min(0.1)]],
+      price: ['', [Validators.required, Validators.min(0.1)]],
+      weight: ['', [Validators.required, Validators.min(0.1)]],
       imageUrl: ['', [Validators.required, ValidateUrl]]
     });
   }

@@ -1,0 +1,72 @@
+.topping-create {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../../../../assets/images/topping-create.jpg') no-repeat center;
+    background-size: cover;
+    padding: 2rem 0;
+}
+
+img {
+    width: 46%;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    color: white;
+    font-size: 1.6rem;
+    margin: 0.7rem 0 2rem;
+    border-bottom: 2px solid white;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.7rem;
+    text-align: center;
+}
+
+.topping-create-container {
+    width: 30%;
+    margin: 1rem auto;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 2rem;
+    box-sizing: border-box;
+    box-shadow: 4px 4px 10px 0px rgba(0,0,0,0.63);
+}
+
+form > div {
+    position: relative;
+}
+
+span {
+    color: white;
+    font-size: 1.3rem;
+}
+
+input {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    box-sizing: border-box;
+    border-radius: 1rem;
+    border: none;
+    margin-bottom: 1.7rem;
+    outline: none;
+    font-size: 1.01rem;
+}
+
+.error-message {
+    position: absolute;
+    color: rgb(224, 0, 0);
+    font-style: italic;
+    font-size: 0.9rem;
+    bottom: 0.3rem;
+    left: 0.7rem;
+}
+
+input[type="submit"] {
+    background: #74d968;
+    font-size: 1.1rem;
+    color: white;
+    font-weight: 600;
+    text-shadow: 2px 2px 3px rgba(150, 150, 150, 1);
+    box-shadow: 4px 4px 11px 0px rgba(0,0,0,0.29);
+    margin-bottom: 0.3rem;
+}
+
+.image-block {
+    text-align: center;
+}

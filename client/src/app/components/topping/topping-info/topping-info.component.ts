@@ -10,7 +10,7 @@ import { toppings } from 'src/app/store/selectors/topping.selector';
 @Component({
   selector: 'app-topping-info',
   templateUrl: './topping-info.component.html',
-  styleUrls: ['./topping-info.component.css']
+  styleUrls: ['./topping-info.component.scss']
 })
 export class ToppingInfoComponent implements OnInit {
   toppings$: Observable<ToppingInfo[]>;

@@ -1,18 +1,36 @@
-<div *ngIf="(order$ | async) as order">
-  <h4>{{order.burger.name}}</h4>
-  <img [src]="order.burger.imageUrl" alt="burger-image">
-  <p>Products:</p>
-  <ul>
-    <li *ngFor="let product of order.products">{{product}}</li>
-  </ul>
-  <p>Toppings:</p>
-  <ul>
-    <li *ngFor="let topping of order.toppings">{{topping.name}}</li>
-  </ul>
-  <p>Delivery type: {{order.deliveryType}}</p>
-  <p>Quantity: {{order.quantity}}</p>
-  <p>Total price: {{order.totalPrice | numberRound: 2}}$</p>
-  <p>Status: {{order.status}}</p>
-  <p>Creation date: {{order.creationDate | date: 'dd/MM/yyyy hh/mm' }}</p>
-  <p>Creator: {{order.creator.username}}</p>
+<div class="order-details" *ngIf="(order$ | async) as order">
+  <div class="order-container">
+    <div class="order-details-header">
+      <div>
+        <h2>{{order.burger.name}}</h2>
+        <img [src]="order.burger.imageUrl" alt="burger-image">
+      </div>
+      <div>
+        <p><span>Delivery type:</span> {{order.deliveryType}}</p>
+        <p><span>Quantity:</span> {{order.quantity}}</p>
+        <p><span>Total price:</span> {{order.totalPrice | numberRound: 2}}$</p>
+      </div>
+    </div>
+    <div class="order-info">
+      <div class="items">
+        <div>
+          <h3>Products:</h3>
+          <ul>
+            <li *ngFor="let product of order.products">{{product}}</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Toppings:</h3>
+          <ul>
+            <li *ngFor="let topping of order.toppings">{{topping.name}}</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <p><span>Status:</span> {{order.status}}</p>
+        <p><span>Creation date:</span> {{order.creationDate | date: 'dd/MM/yyyy hh/mm' }}</p>
+        <p><span>Creator:</span> {{order.creator.username}}</p>
+      </div>
+    </div>
+  </div>
 </div>

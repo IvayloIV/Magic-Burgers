@@ -8,7 +8,7 @@ import { orderDetails } from 'src/app/store/selectors/order.selector';
 @Component({
   selector: 'app-order-details',
   templateUrl: './order-details.component.html',
-  styleUrls: ['./order-details.component.css']
+  styleUrls: ['./order-details.component.scss']
 })
 export class OrderDetailsComponent implements OnInit {
   order$: Observable<OrderDetails>;

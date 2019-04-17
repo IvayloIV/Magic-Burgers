@@ -1,5 +1,5 @@
 <table>
-    <tr>
+    <tr class="table-header">
         <th>Burger image</th>
         <th>Burger name</th>
         <th>Delivery type</th>
@@ -8,14 +8,14 @@
         <th>Status</th>
         <th>Actions</th>
     </tr>
-    <tr *ngFor="let order of orders">
+    <tr class="order-info" *ngFor="let order of orders">
         <img [src]="order.burger.imageUrl" alt="burger-image">
         <td>{{order.burger.name}}</td>
         <td>{{order.deliveryType}}</td>
         <td>{{order.quantity}}</td>
         <td>{{order.totalPrice | numberRound: 2}}</td>
         <td>{{order.status}}</td>
-        <td>
+        <td class="buttons">
             <a *ngIf="canEdit && order.status !== 'Delivered'" routerLink="/order/edit/{{order._id}}">Edit</a>
             <a routerLink="/order/details/{{order._id}}">Details</a>
         </td>

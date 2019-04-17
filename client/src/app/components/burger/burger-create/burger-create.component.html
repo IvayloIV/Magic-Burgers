@@ -1,45 +1,43 @@
-<div>
-  <h3>Create burger</h3>
-  <form [formGroup]="form" (submit)="createBurger()">
-    <div>
-      <span>Name</span>
-      <input type="text" formControlName="name" name="name">
-      <div *ngIf="f['name'].dirty && f['name'].invalid">Name is required.</div>
-    </div>
-    <div>
-      <span>Price</span>
-      <input type="number" formControlName="price" name="price">
-      <div *ngIf="f['price'].dirty && f['price'].invalid">Price should be a positive number.</div>
-    </div>
-    <div>
-      <span>Description</span>
-      <textarea type="text" rows="5" cols="10" formControlName="description" name="description"></textarea>
-      <div *ngIf="f['description'].dirty && f['description'].invalid">Description length is between 5 and 70 symbols.</div>
-    </div>
-    <div>
-      <span>Weight</span>
-      <input type="number" formControlName="weight" name="weight">
-      <div *ngIf="f['weight'].dirty && f['weight'].invalid">Weight should be a positive number.</div>
-    </div>
-    <div>
-      <span>Calories</span>
-      <input type="number" formControlName="calories" name="calories">
-      <div *ngIf="f['calories'].dirty && f['calories'].invalid">Calories should be a positive number.</div>
-    </div>
-    <div>
-      <span>Image</span>
-      <input type="text" formControlName="imageUrl" name="imageUrl">
-      <div *ngIf="f['imageUrl'].dirty && f['imageUrl'].invalid">Image must start with http or https.</div>
-      <img *ngIf="f['imageUrl'].dirty && f['imageUrl'].valid" [src]="f['imageUrl'].value" alt="image-burger">
-    </div>
-    <div>
-      <span>Products:</span>
-      <ul>
-        <li *ngFor="let product of f['products'].value">{{product}}</li>
-      </ul>
-      <input type="text" name="newProduct" #newProduct>
-      <input type="button" value="Add" (click)="addProduct()">
-    </div>
-    <input type="submit" [disabled]="form.invalid" value="Create">
-  </form>
+<div class="burger-create">
+  <div class="burger-create-container">
+    <h3>Create burger</h3>
+    <form [formGroup]="form" (submit)="createBurger()">
+      <div>
+        <input type="text" formControlName="name" name="name" placeholder="Name">
+        <div *ngIf="f['name'].dirty && f['name'].invalid" class="error-message">Name is required.</div>
+      </div>
+      <div>
+        <input type="number" formControlName="price" name="price" placeholder="Price">
+        <div *ngIf="f['price'].dirty && f['price'].invalid" class="error-message">Price should be a positive number.</div>
+      </div>
+      <div>
+        <input type="text" formControlName="description" name="description" placeholder="Description">
+        <div *ngIf="f['description'].dirty && f['description'].invalid" class="error-message">Description length is between 5 and 70 symbols.</div>
+      </div>
+      <div>
+        <input type="number" formControlName="weight" name="weight" placeholder="Weight">
+        <div *ngIf="f['weight'].dirty && f['weight'].invalid" class="error-message">Weight should be a positive number.</div>
+      </div>
+      <div>
+        <input type="number" formControlName="calories" name="calories" placeholder="Calories">
+        <div *ngIf="f['calories'].dirty && f['calories'].invalid" class="error-message">Calories should be a positive number.</div>
+      </div>
+      <div class="image-block">
+        <input type="text" formControlName="imageUrl" name="imageUrl" placeholder="Image">
+        <div *ngIf="f['imageUrl'].dirty && f['imageUrl'].invalid" class="error-message">Image must start with http or https.</div>
+        <img *ngIf="f['imageUrl'].dirty && f['imageUrl'].valid" [src]="f['imageUrl'].value" alt="image-burger">
+      </div>
+      <div>
+        <span>Products:</span>
+        <ul>
+          <li *ngFor="let product of f['products'].value">{{product}}</li>
+        </ul>
+        <div class="create-product">
+          <input type="text" class="addProduct" name="newProduct" #newProduct placeholder="New product">
+          <input type="button" class="addProduct-button" value="Add" (click)="addProduct()">
+        </div>
+      </div>
+      <input type="submit" [disabled]="form.invalid" value="Create">
+    </form>
+  </div>
 </div>

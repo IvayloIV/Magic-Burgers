@@ -8,7 +8,7 @@ import { allOrders } from 'src/app/store/selectors/order.selector';
 @Component({
   selector: 'app-all-orders',
   templateUrl: './all-orders.component.html',
-  styleUrls: ['./all-orders.component.css']
+  styleUrls: ['./all-orders.component.scss']
 })
 export class AllOrdersComponent implements OnInit {
   orders$: Observable<OrderInfo[]>;

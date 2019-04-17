@@ -6,7 +6,7 @@ import { BurgerService } from 'src/app/core/services/burger.service';
 @Component({
   selector: 'app-burger-create',
   templateUrl: './burger-create.component.html',
-  styleUrls: ['./burger-create.component.css']
+  styleUrls: ['./burger-create.component.scss']
 })
 export class BurgerCreateComponent implements OnInit {
   @ViewChild('newProduct') newProduct: ElementRef;
@@ -24,10 +24,10 @@ export class BurgerCreateComponent implements OnInit {
   buildForm() {
     this.form = this.fb.group({
       name: ['', Validators.required],
-      price: ['0', [Validators.required, Validators.min(0.1)]],
+      price: ['', [Validators.required, Validators.min(0.1)]],
       description: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(70)]],
-      weight: ['0', [Validators.required, Validators.min(0.1)]],
-      calories: ['0', [Validators.required, Validators.min(0.1)]],
+      weight: ['', [Validators.required, Validators.min(0.1)]],
+      calories: ['', [Validators.required, Validators.min(0.1)]],
       imageUrl: ['', [Validators.required, ValidateUrl]],
       products: [[]]
     });

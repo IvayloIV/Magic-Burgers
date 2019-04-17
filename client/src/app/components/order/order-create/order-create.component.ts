@@ -11,7 +11,7 @@ import { burgerDetails } from 'src/app/store/selectors/burger.selector';
 @Component({
   selector: 'app-order-create',
   templateUrl: './order-create.component.html',
-  styleUrls: ['./order-create.component.css']
+  styleUrls: ['./order-create.component.scss']
 })
 export class OrderCreateComponent implements OnInit, OnDestroy {
   burger: BurgerDetails;
