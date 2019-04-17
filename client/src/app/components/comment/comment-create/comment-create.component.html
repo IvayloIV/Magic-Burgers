@@ -1,20 +1,24 @@
 <div class="comment-create">
-  <h3>Create comment:</h3>
-  <form [formGroup]="form" (submit)="createComment()">
-    <div>
-      <label>
-        <span>Message:</span>
-        <textarea type="text" cols="40" rows="7" formControlName="message"></textarea>
-      </label>
-      <div *ngIf="f['message'].dirty" [class.error]="f['message'].invalid">Message length {{f['message'].value.length}}/70.</div>
-    </div>
-    <select formControlName="rating">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select>
-    <input type="submit" [disabled]="form.invalid" value="Create">
-  </form>
+  <div class="comment-title">
+    <h2>Create comment:</h2><hr>
+  </div>
+  <div class="comment-form">
+    <form [formGroup]="form" (submit)="createComment()">
+      <div class="message">
+        <textarea type="text" cols="40" rows="5" formControlName="message" placeholder="Message"></textarea>
+        <div class="error-message" *ngIf="f['message'].dirty" [class.error]="f['message'].invalid">Message length {{f['message'].value.length}}/40.</div>
+      </div>
+      <div class="rating">
+        <span>Rating:</span>
+        <select formControlName="rating">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <input type="submit" [disabled]="form.invalid" value="Create">
+      </div>
+    </form>
+  </div>
 </div>

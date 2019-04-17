@@ -5,7 +5,7 @@ import { BurgerDetails } from 'src/app/core/models/burger/burger-details.model';
 @Component({
   selector: 'app-order-products',
   templateUrl: './order-products.component.html',
-  styleUrls: ['./order-products.component.css']
+  styleUrls: ['./order-products.component.scss']
 })
 export class OrderProductsComponent {
   @Input() orderFrom: FormGroup;

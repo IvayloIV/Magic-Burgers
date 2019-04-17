@@ -1,6 +1,6 @@
 <div>
   <h3>Products:</h3>
   <ul>
-    <li *ngFor="let product of burger.products" highlight="green" (click)="changeProducts(product)">{{product}}</li>
+    <li *ngFor="let product of burger.products" [highlight]="true" [value]="product" (click)="changeProducts(product)"></li>
   </ul>
 </div>

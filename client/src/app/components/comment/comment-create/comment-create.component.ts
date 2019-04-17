@@ -6,7 +6,7 @@ import { CommentService } from 'src/app/core/services/comment.service';
 @Component({
   selector: 'app-comment-create',
   templateUrl: './comment-create.component.html',
-  styleUrls: ['./comment-create.component.css']
+  styleUrls: ['./comment-create.component.scss']
 })
 export class CommentCreateComponent implements OnInit {
   form: FormGroup;
@@ -23,7 +23,7 @@ export class CommentCreateComponent implements OnInit {
 
   buildForm() {
     this.form = this.fb.group({
-      message: ['', [Validators.required, Validators.maxLength(70)]],
+      message: ['', [Validators.required, Validators.maxLength(40)]],
       rating: ['1', [Validators.min(1), Validators.max(5)]]
     });
   }

@@ -1,21 +1,28 @@
 <section class="burger-details" *ngIf="(burger$ | async) as burger">
     <div class="burger-details-info">
-        <img [src]="burger.imageUrl" alt="burger-image">
-        <p>Comments: {{burger.comments.length}}</p>
-        <p>Likes: {{burger.likes.length}}</p>
-        Products:
-        <div class="details-products" *ngFor="let product of burger.products">
-            <p>{{product}}</p>
+        <div class="burger-header">
+            <img [src]="burger.imageUrl" alt="burger-image">
+            <div class="statistic">
+                <p><span>Likes:</span> {{burger.likes.length}}</p>
+                <p><span>Comments:</span> {{burger.comments.length}}</p>
+            </div>
+            <p><span>Creation date:</span> {{ burger.creationDate | date:"dd/MM/yy, hh:mm" }}</p>
+            <div *ngIf="userId">
+                <a routerLink="/order/create/{{burger._id}}" class="order-burger">Order</a>
+                <i *ngIf="burger.likes.indexOf(userId) === -1; else dislike" (click)="likeBurger(burger._id)" class="fas fa-heart"></i>
+                <ng-template #dislike><i (click)="dislikeBurger(burger._id)" class="far fa-heart"></i></ng-template>
+            </div>
         </div>
-        <p>Price: {{burger.price}}</p>
-        <p>Description: {{burger.description}}</p>
-        <p>Weight: {{burger.weight}}</p>
-        <p>Calories: {{burger.calories}}</p>
-        <p>Creation date: {{ burger.creationDate | date:"dd/MM/yy, hh:mm" }}</p>
-        <div *ngIf="userId">
-            <a routerLink="/order/create/{{burger._id}}">Order</a>
-            <button *ngIf="burger.likes.indexOf(userId) === -1; else dislike" (click)="likeBurger(burger._id)">Like</button>
-            <ng-template #dislike><button (click)="dislikeBurger(burger._id)">Dislike</button></ng-template>
+        <div class="products">
+            <h2>{{burger.name}}</h2>
+            <h3>Products:</h3>
+            <div class="details-products" *ngFor="let product of burger.products">
+                <p> - {{product}}</p>
+            </div>
+            <p><span>Description:</span> {{burger.description}}</p>
+            <p><span>Weight:</span> {{burger.weight}}</p>
+            <p><span>Kcal:</span> {{burger.calories}}gr</p>
+            <p><span>Price:</span> {{burger.price}}$</p>
         </div>
     </div>
     <app-comment-create *ngIf="isAuth && !isBlocked; else login"></app-comment-create>

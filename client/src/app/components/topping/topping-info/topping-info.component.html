@@ -1,8 +1,11 @@
 <div>
   <h3>Toppings:</h3>
   <ul>
-    <li highligh *ngFor="let topping of (toppings$ | async)" highlight="red" (click)="changeToppings(topping._id, topping.price)">
-      {{topping.name}} - {{topping.price}}$
+    <li highligh 
+      *ngFor="let topping of (toppings$ | async)" 
+      [highlight]="false" 
+      [value]="topping.name + ' - ' + topping.price + '$'"
+      (click)="changeToppings(topping._id, topping.price)">
     </li>
   </ul>
 </div>

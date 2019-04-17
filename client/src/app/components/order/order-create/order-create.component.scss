@@ -1,3 +1,105 @@
 img {
-    width: 40%;
+    width: 60%;
+}
+
+.order-create {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../../../../assets/images/order-create-background.jpg') no-repeat center;
+    background-size: cover;
+    padding: 4rem 0;
+}
+
+h2 {
+    margin: 0;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+}
+
+hr {
+    width: 35%;
+    margin-bottom: 1.5rem;
+    display: block;
+    border: none;
+    background: white;
+    height: 2px;
+}
+
+.container {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.order-form form{
+    display: flex;
+    justify-content: space-between;
+    
+    & > div {
+        width: 28%;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 1.3rem 1rem 1.5rem 1rem;
+        box-sizing: border-box;
+        border-radius: 10px;
+    }
+}
+
+.order-sum {
+    text-align: center;
+    align-self: center;
+
+    h3 {
+        background: #BFD8A9;
+        border: 2px solid #819CB6;
+        padding: 0.5rem;
+        font-weight: 400;
+        border-radius: 10px;
+        letter-spacing: 2px;
+    }
+
+    span {
+        font-weight: 600;
+    }
+
+    .add, .subtract {
+        border: none;
+        padding: 0.4rem 0.9rem;
+        cursor: pointer;
+        border-radius: 6px;
+        font-size: 1.1rem;
+        outline: none;
+    }
+
+    input {
+        margin: 0 0.2rem;
+    }
+    
+    .add {
+        background: #bfd8a9;
+        
+        &:hover {
+            background: #abce8c;
+        }
+    }
+
+    .subtract {
+        background: #f69079;
+        
+        &:hover {
+            background: #e0755d;
+        }
+    }
+
+    input[type="submit"] {
+        border: none;
+        background: #ffcf8f;
+        padding: 0.6rem 1.3rem;
+        border-radius: 7px;
+        font-size: 1.02rem;
+        margin-left: 9px;
+        cursor: pointer;
+        outline: none;
+        
+        &:hover {
+            background: #fabf72;
+        }
+    }
 }

@@ -10,7 +10,7 @@ import { comments } from 'src/app/store/selectors/comment.selector';
 @Component({
   selector: 'app-comment-list',
   templateUrl: './comment-list.component.html',
-  styleUrls: ['./comment-list.component.css']
+  styleUrls: ['./comment-list.component.scss']
 })
 export class CommentListComponent implements OnInit {
   comments$: Observable<CommentInfo[]>;

@@ -1,14 +1,25 @@
 <section class="user-all">
-  <div *ngFor="let user of (users$ | async)">
-    <img [src]="user.imageUrl" alt="user-image">
-    <p>{{user.username}}</p>
-    <p>Age: {{user.age}}</p>
-    <p>Comments count: {{user.comments.length}}</p>
-    <p>Orders count: {{user.orders.length}}</p>
-    <div>
-      <a routerLink="/user/profile/{{user.username}}">Details</a>
-      <button *ngIf="!user.blocked; else unblock" (click)="blockUser(user._id)">Block</button>
-      <ng-template #unblock><button (click)="unblockUser(user._id)">Unblock</button></ng-template>
+  <div class="user-title">
+    <h2>Users</h2><hr>
+  </div>
+  <div class="users-container">
+    <div class="user" *ngFor="let user of (users$ | async)">
+      <img [src]="user.imageUrl" alt="user-image">
+      <div class="user-info">
+        <div>
+          <p>{{user.username}}</p>
+          <p>{{user.age}} years</p>
+        </div>
+        <div>
+          <p><i class="far fa-comments"></i> count: {{user.comments.length}}</p>
+          <p><i class="fas fa-hamburger"></i> count: {{user.orders.length}}</p>
+        </div>
+      </div>
+      <div class="buttons">
+        <a routerLink="/user/profile/{{user.username}}">Details</a>
+        <a class="block" *ngIf="!user.blocked; else unblock" (click)="blockUser(user._id)">Block</a>
+        <ng-template #unblock><a class="unblock" (click)="unblockUser(user._id)">Unblock</a></ng-template>
+      </div>
     </div>
   </div>
 </section>

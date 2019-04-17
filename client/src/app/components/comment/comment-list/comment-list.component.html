@@ -1,7 +1,11 @@
-<div *ngFor="let comment of (comments$ | async)">
-  <p>{{comment.message}}</p>
-  <p>{{comment.rating}}</p>
-  <p>Creator: {{comment.creator.username}}</p>
-  <p>{{comment.creationDate | date:"dd/MM/yy, hh:mm" }}</p>
-  <a *ngIf="comment.creator._id === userId || isAdmin" (click)="removeComment(comment._id)"><button>Remove</button></a>
+<div class="comment-list" *ngFor="let comment of (comments$ | async)">
+  <div>
+    <p class="message">{{comment.message}}</p>
+    <p>Rating: {{comment.rating}}</p>
+  </div>
+  <div>
+    <p>Creator: {{comment.creator.username}}</p>
+    <p>{{comment.creationDate | date:"dd/MM/yy, hh:mm" }}</p>
+  </div>
+  <i *ngIf="comment.creator._id === userId || isAdmin" (click)="removeComment(comment._id)" class="fas fa-times"></i>
 </div>

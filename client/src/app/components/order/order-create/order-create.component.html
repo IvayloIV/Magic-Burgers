@@ -1,19 +1,27 @@
 <section class="order-create">
-  <h3>Create order</h3>
-  <form [formGroup]="form" (submit)="createOrder()">
-      <div>
-        <app-order-products [orderFrom]="form" [burger]="burger"></app-order-products>
-        <app-topping-info [orderFrom]="form"></app-topping-info>
-      </div>
-      <div>
-        <h3>Burger "{{burger.name}}":</h3>
-        <img [src]="burger.imageUrl" alt="burger-image">
-        <p>Price: {{(f['totalPrice'].value * f['quantity'].value) | numberRound: 2}}</p>
-        <p>Quantity: {{f['quantity'].value}}</p>
-        <input type="button" (click)="increaseQuantity()" value="+">
-        <input type="button" (click)="decreaseQuantity()" value="-">
-        <input type="submit" value="Order">
-      </div>
-      <app-order-delivery-types [orderFrom]="form"></app-order-delivery-types>
-  </form>
+  <div class="container">
+    <div class="order-create-title">
+      <h2>Create order</h2><hr>
+    </div>
+    <div class="order-form">
+      <form [formGroup]="form" (submit)="createOrder()">
+          <div>
+            <app-order-products [orderFrom]="form" [burger]="burger"></app-order-products>
+            <app-topping-info [orderFrom]="form"></app-topping-info>
+          </div>
+          <div class="order-sum">
+            <h3>Burger "{{burger.name}}":</h3>
+            <img [src]="burger.imageUrl" alt="burger-image">
+            <p><span>Price:</span> {{(f['totalPrice'].value * f['quantity'].value) | numberRound: 2}}$</p>
+            <p><span>Quantity:</span> {{f['quantity'].value}}</p>
+            <input type="button" (click)="increaseQuantity()" value="+" class="add">
+            <input type="button" (click)="decreaseQuantity()" value="-" class="subtract">
+            <input type="submit" value="Order">
+          </div>
+          <div>
+            <app-order-delivery-types [orderFrom]="form"></app-order-delivery-types>
+          </div>
+      </form>
+    </div>
+  </div>
 </section>

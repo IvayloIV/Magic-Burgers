@@ -10,7 +10,7 @@ import { allUsers } from 'src/app/store/selectors/user.selector';
 @Component({
   selector: 'app-all-users',
   templateUrl: './all-users.component.html',
-  styleUrls: ['./all-users.component.css']
+  styleUrls: ['./all-users.component.scss']
 })
 export class AllUsersComponent implements OnInit {
   users$: Observable<UserInfo[]>;

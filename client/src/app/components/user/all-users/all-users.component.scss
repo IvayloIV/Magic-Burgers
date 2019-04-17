@@ -1,0 +1,85 @@
+h2 {
+    margin: 0;
+    padding-top: 1rem;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+}
+
+hr {
+    width: 20%;
+    margin-bottom: 1.5rem;
+    display: block;
+    border: none;
+    background: white;
+    height: 2px;
+}
+
+.user-all {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../../../../assets/images/user-list.jpg') no-repeat center;
+    background-size: cover;
+    padding: 2rem 0;
+}
+
+.users-container {
+    width: 65%;
+    margin: 1rem auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2.8rem;
+    padding-bottom: 0.8rem;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.87);
+    box-shadow: 5px 5px 21px 0px rgba(0,0,0,0.51);
+    text-align: center;
+    border-radius: 20px;
+
+    .user {
+        width: 26%;
+        margin-bottom: 1.6rem;
+        border: 2px solid #eeaa55;
+        padding: 2rem 1.1rem;
+        border-radius: 4px;
+    }
+
+    img {
+        width: 60%;
+        border-radius: 50%;
+    }
+
+    .user-info {
+        display: flex;
+        justify-content: space-evenly;
+        margin: 1rem 0;
+
+        & > div {
+            width: 50%;
+        }
+
+        & > div:first-of-type {
+            border-right: 1px solid black;
+        }
+    }
+
+    a {
+        padding: 0.6rem 1rem;
+        background: #ffc252;
+        text-decoration: none;
+        color: white;
+        font-size: 1.01rem;
+        margin: 0 0.3rem;
+        border-radius: 9px;
+        font-size: 1.1rem;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .block {
+        background: #f85b5b;
+    }
+    
+    .unblock {
+        background: #81f75d;
+    }
+}

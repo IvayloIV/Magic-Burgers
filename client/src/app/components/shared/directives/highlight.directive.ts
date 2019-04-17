@@ -4,27 +4,32 @@ import { Directive, ElementRef, HostListener, Input, OnInit } from '@angular/cor
   selector: '[highlight]',
 })
 export class HighlightDirective implements OnInit {
-    @Input() highlight: string;
+    @Input() highlight: boolean;
+    @Input() value: string;
 
     constructor(private el: ElementRef) {}
     
     ngOnInit() {
-        this.el.nativeElement.style.color = this.highlight;
+        this.checkCondition(this.highlight);
     }
     
     @HostListener('click') onMouseClick() {
-        this.changeColor();
+        this.changeElement();
     }
     
-    private changeColor() {
-        if (this.el.nativeElement.style.color === 'green') {
-            this.setColor('red');
-        } else {
-            this.setColor('green')
-        }
+    private changeElement() {
+        this.checkCondition(this.el.nativeElement.innerHTML.indexOf('check') === -1);
     }
 
-    private setColor(color: string) {
-        this.el.nativeElement.style.color = color;
+    private checkCondition(condition: boolean) {
+        if (condition) {
+            this.setValue('<i class="fas fa-check"></i>');
+        } else {
+            this.setValue('<i class="fas fa-times"></i>');
+        }
+    }
+    
+    private setValue(str: string) {
+        this.el.nativeElement.innerHTML = str + ' ' + this.value;
     }
 }

@@ -11,7 +11,7 @@ import { BurgerDetails } from 'src/app/core/models/burger/burger-details.model';
 @Component({
   selector: 'app-burger-details',
   templateUrl: './burger-details.component.html',
-  styleUrls: ['./burger-details.component.css']
+  styleUrls: ['./burger-details.component.scss']
 })
 export class BurgerDetailsComponent implements OnInit {
   burger$: Observable<BurgerDetails>;
