@@ -1,0 +1,21 @@
+<div class="order-info">
+  <div class="items">
+    <div>
+      <h3>Products:</h3>
+      <ul>
+        <li *ngFor="let product of order.products">{{product}}</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Toppings:</h3>
+      <ul>
+        <li *ngFor="let topping of order.toppings">{{topping.name}}</li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <p><span>Status:</span> {{order.status}}</p>
+    <p><span>Creation date:</span> {{order.creationDate | date: 'dd/MM/yyyy hh/mm' }}</p>
+    <p><span>Creator:</span> {{order.creator.username}}</p>
+  </div>
+</div>

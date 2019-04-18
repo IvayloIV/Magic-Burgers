@@ -1,0 +1,38 @@
+.order-info {
+    display: flex;
+    align-content: center;
+
+    & > div:first-of-type {
+        width: 60%;
+        border-right: 2px solid #08d908;
+    }
+    
+    & > div:last-of-type {
+        width: 40%;
+    }
+
+    & > div {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        padding: 1rem;
+        box-sizing: border-box;
+    }
+
+    .items {
+        flex-direction: row;
+        justify-content: space-around;
+
+        div {
+            width: 40%;
+        }
+    }
+
+    p {
+        margin: 0.6rem;
+    }
+
+    span {
+        font-weight: 600;
+    }
+}

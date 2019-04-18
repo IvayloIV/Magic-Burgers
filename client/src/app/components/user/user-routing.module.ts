@@ -11,7 +11,7 @@ import { UserProfileResolver } from 'src/app/core/resolvers/user/user-profile.re
 
 const routes: Routes = [
   {
-    path: 'profile/my', 
+    path: 'profile/my',
     component: UserProfileComponent,
     resolve: { userProfile: UserMyProfileResolver} 
   },

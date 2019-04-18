@@ -9,8 +9,8 @@
             <p><span>Creation date:</span> {{ burger.creationDate | date:"dd/MM/yy, hh:mm" }}</p>
             <div *ngIf="userId">
                 <a routerLink="/order/create/{{burger._id}}" class="order-burger">Order</a>
-                <i *ngIf="burger.likes.indexOf(userId) === -1; else dislike" (click)="likeBurger(burger._id)" class="fas fa-heart"></i>
-                <ng-template #dislike><i (click)="dislikeBurger(burger._id)" class="far fa-heart"></i></ng-template>
+                <i *ngIf="burger.likes.indexOf(userId) === -1; else dislike" (click)="likeBurger(burger._id)" class="far fa-heart"></i>
+                <ng-template #dislike><i (click)="dislikeBurger(burger._id)" class="fas fa-heart"></i></ng-template>
             </div>
         </div>
         <div class="products">
@@ -27,8 +27,8 @@
     </div>
     <app-comment-create *ngIf="isAuth && !isBlocked; else login"></app-comment-create>
     <ng-template #login>
-        <h3 *ngIf="!isBlocked"><a routerLink="/auth/login">Login to post a comments.</a></h3>
-        <h3 *ngIf="isBlocked">You are blocked.</h3>
+        <h3 *ngIf="!isBlocked" class="authType"><a routerLink="/auth/login">Login to post a comments.</a></h3>
+        <h3 *ngIf="isBlocked" class="authType">You are blocked.</h3>
     </ng-template>
     <app-comment-list></app-comment-list>
 </section>

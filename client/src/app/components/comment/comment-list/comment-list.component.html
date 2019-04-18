@@ -1,4 +1,4 @@
-<div class="comment-list" *ngFor="let comment of (comments$ | async)">
+<div class="comment-list" *ngFor="let comment of (comments$ | async)" @commentShow>
   <div>
     <p class="message">{{comment.message}}</p>
     <p>Rating: {{comment.rating}}</p>
