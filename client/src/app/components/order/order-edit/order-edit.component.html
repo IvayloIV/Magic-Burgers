@@ -17,7 +17,7 @@
     <div class="edit-info">
       <p><span>Delivery Type:</span> {{order.deliveryType}}</p>
       <p><span>Quantity:</span> {{order.quantity}}</p>
-      <p><span>Total Price:</span> {{order.totalPrice}}</p>
+      <p><span>Total Price:</span> {{order.totalPrice | numberRound: 2}}</p>
       <app-order-status [status]="order.status" (statusChanged)="changeStatus($event)"></app-order-status>
       <button (click)="editOrder()">Edit</button>
     </div>

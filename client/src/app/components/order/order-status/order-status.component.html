@@ -1,20 +1,5 @@
-<label class="container">
-  <span>Pending</span>
-  <input type="radio" name="status" value="Pending" (click)="changeStatus('Pending')" [checked]="status === 'Pending'">
-  <span class="checkmark"></span>
-</label>
-<label class="container">
-  <span>In Progress</span>
-  <input type="radio" name="status" value="In Progress" (click)="changeStatus('In Progress')" [checked]="status === 'In Progress'">
-  <span class="checkmark"></span>
-</label>
-<label class="container">
-  <span>In Transit</span>
-  <input type="radio" name="status" value="In Transit" (click)="changeStatus('In Transit')" [checked]="status === 'In Transit'">
-  <span class="checkmark"></span>
-</label>
-<label class="container">
-  <span>Delivered</span>
-  <input type="radio" name="status" value="Delivered" (click)="changeStatus('Delivered')" [checked]="status === 'Delivered'">
+<label *ngFor="let currentStatus of allStatus" class="container">
+  <span>{{currentStatus}}</span>
+  <input type="radio" name="status" [value]="currentStatus" (click)="changeStatus(currentStatus)" [checked]="status === currentStatus">
   <span class="checkmark"></span>
 </label>

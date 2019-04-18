@@ -8,7 +8,7 @@ function validateTopping({ name, imageUrl, origin, price, weight }) {
         errors.push('Name cannot be empty.');
     }
 
-    if (!imageUrl.startsWith('http') || !imageUrl.startsWith('https')) {
+    if (!imageUrl.startsWith('http') && !imageUrl.startsWith('https')) {
         errors.push('Image must start with http or https');
     }
 

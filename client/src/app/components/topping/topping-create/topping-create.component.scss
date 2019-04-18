@@ -50,7 +50,7 @@ input {
 
 .error-message {
     position: absolute;
-    color: rgb(224, 0, 0);
+    color: #ec2222;
     font-style: italic;
     font-size: 0.9rem;
     bottom: 0.3rem;
@@ -65,6 +65,11 @@ input[type="submit"] {
     text-shadow: 2px 2px 3px rgba(150, 150, 150, 1);
     box-shadow: 4px 4px 11px 0px rgba(0,0,0,0.29);
     margin-bottom: 0.3rem;
+    
+    &:not(:disabled):hover {
+        cursor: pointer;
+        background: #56d348;
+    }
 }
 
 .image-block {
